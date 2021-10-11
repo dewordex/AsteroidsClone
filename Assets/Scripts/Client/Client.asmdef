@@ -1,0 +1,18 @@
+{
+    "name": "Client",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0817c56676ec2364190d831a79561621",
+        "GUID:656c2c43d3cfe4855bd40e058874b0be",
+        "GUID:0104ae351448541ee9a4ab55eb9d8b69"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
