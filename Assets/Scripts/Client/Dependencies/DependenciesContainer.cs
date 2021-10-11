@@ -7,6 +7,8 @@ namespace Client.Dependencies
         protected override void SetupDependencies()
         {
             Add(new AddressableWrapper());
+            Add(new InputWrapper());
+            Add(new DeltaTimeWrapper());
         }
     }
 }
