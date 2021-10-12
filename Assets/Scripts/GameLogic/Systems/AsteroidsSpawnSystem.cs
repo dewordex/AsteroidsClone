@@ -31,7 +31,7 @@ namespace GameLogic.Systems
 
                 for (int i = 0; i < asteroidsCount; i++)
                 {
-                    _viewLoader.InstantiateAsync<IAsteroidView>(asteroidDescription.Key).Completed += handle =>
+                    _viewLoader.InstantiateAsync<IMovableView>(asteroidDescription.Key).Completed += handle =>
                     {
                         var result = handle.Result;
                         var newEntity = _world.NewEntity();

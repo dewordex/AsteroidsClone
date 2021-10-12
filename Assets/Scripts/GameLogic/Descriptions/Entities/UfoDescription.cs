@@ -5,16 +5,13 @@ using GameLogic.Descriptions.Entities.Base;
 
 namespace GameLogic.Descriptions.Entities
 {
-    public class SpaceshipDescription : EntityDescription<IMovableView>
+    public class UfoDescription : EntityDescription<IMovableView>
     {
-        public override string Key => "spaceship";
+        public override string Key => "ufo";
 
         protected override void SetupComponents()
         {
             AddComponent(new Component<ITransform>(View.Transform));
-            AddComponent(new VelocityComponent());
-            AddComponent(new RigidbodyComponent() { Acceleration = 10, Mass = 3 });
-            AddComponent(new PlayerComponent());
         }
     }
 }

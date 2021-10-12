@@ -29,5 +29,7 @@ namespace Client.Dependencies
             var y = Random.Range(-cameraOrthographicSize, cameraOrthographicSize);
             return new Vector2(x, y);
         }
+
+        public float Range(float min, float max) => Random.Range(min, max);
     }
 }

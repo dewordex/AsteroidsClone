@@ -25,6 +25,10 @@ MonoBehaviour:
     m_Address: asteroid
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: e66018d712172e64390629ba7f17a330
+    m_Address: ufo
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 28172fe2658bdae4d983f9613b9d265e, type: 2}
   m_SchemaSet:

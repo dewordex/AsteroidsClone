@@ -2,7 +2,7 @@
 
 namespace GameLogic.Dependencies.View
 {
-    public interface ISpaceshipView : IView
+    public interface IMovableView : IView
     {
         ITransform Transform { get; }
     }
