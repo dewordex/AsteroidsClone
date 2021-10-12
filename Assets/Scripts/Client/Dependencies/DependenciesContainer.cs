@@ -9,6 +9,7 @@ namespace Client.Dependencies
             Add(new AddressableWrapper());
             Add(new InputWrapper());
             Add(new DeltaTimeWrapper());
+            Add(new CustomRandom());
         }
     }
 }
