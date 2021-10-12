@@ -5,7 +5,7 @@ using GameLogic.Descriptions.Entities.Base;
 
 namespace GameLogic.Descriptions.Entities
 {
-    public class SpaceshipDescription : EntityDescription<ISpaceshipView>
+    public class SpaceshipDescription : EntityDescription<IMovableView>
     {
         public override string Key => "spaceship";
 

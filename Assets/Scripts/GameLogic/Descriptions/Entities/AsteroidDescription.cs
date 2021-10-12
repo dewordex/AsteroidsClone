@@ -6,7 +6,7 @@ using GameLogic.Descriptions.Entities.Base;
 
 namespace GameLogic.Descriptions.Entities
 {
-    public class AsteroidDescription : EntityDescription<IAsteroidView>
+    public class AsteroidDescription : EntityDescription<IMovableView>
     {
         public override string Key => "asteroid";
         protected override void SetupComponents()

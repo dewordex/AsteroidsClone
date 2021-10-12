@@ -5,7 +5,7 @@ using GameLogic.Dependencies.View.Components;
 
 namespace Client.Dependencies.View
 {
-    public class SpaceshipView : BaseView, ISpaceshipView
+    public class SpaceshipView : BaseView, IMovableView
     {
         public ITransform Transform { get; private set; }
         private void Awake() => Transform = new TransformWrapper(transform);
