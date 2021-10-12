@@ -11,12 +11,14 @@ namespace GameLogic.Descriptions.GameDescriptions
         protected override void SetupAll(EcsSystems systems)
         {
             systems.Inject(new AsteroidsSpawnSetting(20, 600, 4));
+            systems.Inject(new UfoSpawnSetting((20,60)));
         }
 
         public override void SetupSystems(EcsSystems systems)
         {
             systems.Add(new TimeSessionSystem());
             systems.Add(new AsteroidsSpawnSystem());
+            systems.Add(new UfoSpawnSystem());
             systems.Add(new SpaceshipSpawnSystem());
             systems.Add(new SpaceshipVelocitySystem());
             systems.Add(new SpaceshipRotateSystem());
