@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 8652156506186609953}
   - component: {fileID: 4794442919500438144}
   - component: {fileID: 386856246542000451}
+  - component: {fileID: 2804746700227303538}
+  - component: {fileID: 3661250798588045542}
+  - component: {fileID: 3624381507334248874}
   m_Layer: 0
   m_Name: Spaceship
   m_TagString: Untagged
@@ -97,6 +100,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 673c7a6041004f54884731001a0f0ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2804746700227303538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6338858511278249139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b72eb81ec4349c88033566452e46746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!68 &3661250798588045542
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6338858511278249139}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.49859095, y: -0.5039618}
+  - {x: -0.50289094, y: -0.5037369}
+  - {x: -0.5125247, y: 0.5021138}
+  - {x: -0.30244243, y: 0.8261645}
+  - {x: 0.0017344654, y: 0.82593733}
+  - {x: 0.31882632, y: 0.8286164}
+  - {x: 0.49076617, y: 0.5083896}
+  - {x: 0.4953338, y: -0.4946292}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!50 &3624381507334248874
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6338858511278249139}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7675276559948949847
 GameObject:
   m_ObjectHideFlags: 0
