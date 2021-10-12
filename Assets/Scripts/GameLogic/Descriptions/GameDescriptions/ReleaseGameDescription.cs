@@ -21,6 +21,8 @@ namespace GameLogic.Descriptions.GameDescriptions
             systems.Add(new SpaceshipVelocitySystem());
             systems.Add(new SpaceshipRotateSystem());
             systems.Add(new SpaceshipMovementSystem());
+            systems.Add(new AsteroidsDirectionSystem());
+            systems.Add(new MovementInDirectionSystem());
         }
     }
 }
