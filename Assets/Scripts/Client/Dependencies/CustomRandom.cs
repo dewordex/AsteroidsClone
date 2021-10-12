@@ -22,5 +22,12 @@ namespace Client.Dependencies
                 ? new Vector2(Math.Sign(randomPointOnCircle.X) * (cameraOrthographicSize * cameraAspect + offset + 1), randomPointOnCircle.Y * cameraOrthographicSize)
                 : new Vector2(randomPointOnCircle.X * cameraOrthographicSize * cameraAspect, Math.Sign(randomPointOnCircle.Y) * (cameraOrthographicSize + offset + 1));
         }
+
+        public Vector2 GetRandomPositionInsideCamera(float cameraOrthographicSize, float cameraAspect)
+        {
+            var x = Random.Range(-cameraOrthographicSize * cameraAspect, cameraOrthographicSize * cameraAspect);
+            var y = Random.Range(-cameraOrthographicSize, cameraOrthographicSize);
+            return new Vector2(x, y);
+        }
     }
 }
