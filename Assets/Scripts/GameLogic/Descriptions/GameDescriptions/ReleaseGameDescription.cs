@@ -19,6 +19,7 @@ namespace GameLogic.Descriptions.GameDescriptions
             systems.Add(new TimeSessionSystem());
             systems.Add(new AsteroidsSpawnSystem());
             systems.Add(new UfoSpawnSystem());
+            systems.Add(new UfoDirectionSystem());
             systems.Add(new SpaceshipSpawnSystem());
             systems.Add(new SpaceshipVelocitySystem());
             systems.Add(new SpaceshipRotateSystem());
