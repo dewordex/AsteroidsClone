@@ -4,7 +4,7 @@ using Leopotam.Ecs;
 
 namespace GameLogic.Descriptions.Entities.Base
 {
-    public abstract class EntityDescription<T> : IEntityDescription where T : IView
+    public abstract class EntityDescription<T> : IEntityDescription where T : class, IView
     {
         public abstract string Key { get; }
         protected T View { get; private set; }
@@ -14,6 +14,7 @@ namespace GameLogic.Descriptions.Entities.Base
         {
             _ecsEntity = ecsEntity;
             View  = (T) view;
+            View.EntityLink = _ecsEntity;
             _ecsEntity.Replace(new Component<IView>(view));
             SetupComponents();
         }
