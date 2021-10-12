@@ -21,6 +21,7 @@ namespace Client.Dependencies.View.Components
         }
 
         public void Rotate(float angle) => _transform.Rotate(_rotationVector, angle);
+        public Vector2 Scale => new Vector2(_transform.lossyScale.x, _transform.lossyScale.y);
 
         private Transform _transform;
         private readonly Vector3 _rotationVector = new Vector3(0, 0, 1);
