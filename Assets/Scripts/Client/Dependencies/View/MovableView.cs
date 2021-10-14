@@ -1,5 +1,4 @@
-﻿using System;
-using Client.Dependencies.Addressable;
+﻿using Client.Dependencies.Addressable;
 using Client.Dependencies.View.Components;
 using GameLogic.Dependencies.View;
 using GameLogic.Dependencies.View.Components;

@@ -1,7 +1,9 @@
-﻿using GameLogic.Components;
+﻿using System;
+using GameLogic.Components;
 using GameLogic.Dependencies;
-using GameLogic.Dependencies.View;
-using GameLogic.Descriptions.Entities;
+using GameLogic.Descriptions;
+using GameLogic.Descriptions.Components;
+using GameLogic.Descriptions.Ids;
 using GameLogic.Descriptions.Settings;
 using Leopotam.Ecs;
 
@@ -11,13 +13,14 @@ namespace GameLogic.Systems
     {
         private EcsWorld _world;
         private AsteroidsSpawnSetting _spawnSetting;
-        private IViewLoader _viewLoader;
+        private IEntityFactory _entityFactory;
         private IRandom _random;
         private ICamera _camera;
 
         private EcsFilter<AsteroidsSessionComponent> _asteroidSessionFilter;
         private EcsFilter<TimeSessionComponent> _timeSessionFilter;
 
+        [EcsIgnoreInject] private Random _intRandom = new Random();
         public void Init() => _world.NewEntity().Replace(new AsteroidsSessionComponent());
 
         public void Run()
@@ -27,17 +30,15 @@ namespace GameLogic.Systems
                 ref var asteroidsSessionComponent = ref _asteroidSessionFilter.Get1(0);
                 var maxAsteroids = _spawnSetting.GetMaxAsteroids(_timeSessionFilter.Get1(0).Time);
                 var asteroidsCount = maxAsteroids - asteroidsSessionComponent.AsteroidsCount;
-                var asteroidDescription = new AsteroidDescription();
 
                 for (int i = 0; i < asteroidsCount; i++)
                 {
-                    _viewLoader.InstantiateAsync<IMovableView>(asteroidDescription.Key).Completed += handle =>
+                    var asteroidComponentsContainer = new AsteroidComponentsContainer();
+                    var descriptionId = _intRandom.Next(0, 2) == 1 ? DescriptionIds.AsteroidDefault : DescriptionIds.AsteroidFast;
+                    _entityFactory.StartCreate(asteroidComponentsContainer, descriptionId).Completed += handle =>
                     {
-                        var result = handle.Result;
-                        var newEntity = _world.NewEntity();
-                        asteroidDescription.InstallComponents(newEntity, result);
-
-                        result.Transform.Position = _random.GetRandomPositionOutsideCamera(result.Transform.Scale.Length(), _camera.OrthographicSize, _camera.Aspect);
+                        asteroidComponentsContainer.View.Transform.Position =
+                            _random.GetRandomPositionOutsideCamera(asteroidComponentsContainer.View.Transform.Scale.Length(), _camera.OrthographicSize, _camera.Aspect);
                     };
                     asteroidsSessionComponent.AsteroidsCount++;
                 }

@@ -1,5 +1,4 @@
 ﻿using GameLogic.Descriptions.Settings;
-using GameLogic.Events;
 using GameLogic.Systems;
 using GameLogic.Systems.Spaceship;
 using GameLogic.Systems.Spaceship.Movement;
@@ -14,10 +13,13 @@ namespace GameLogic.Descriptions.GameDescriptions
         {
             systems.Inject(new AsteroidsSpawnSetting(20, 600, 4));
             systems.Inject(new UfoSpawnSetting((20,60)));
+            systems.Inject(new EntityFactory());
+            systems.Inject(new EntitiesDescriptionsGenerator());
         }
 
         public override void SetupSystems(EcsSystems systems)
         {
+            systems.Add(new EntityFactoryInstallSystem());
             systems.Add(new TimeSessionSystem());
             systems.Add(new AsteroidsSpawnSystem());
             systems.Add(new UfoSpawnSystem());

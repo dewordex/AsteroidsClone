@@ -11,9 +11,9 @@ namespace GameLogic.Systems
         {
             foreach (var i in _filter)
             {
-                ref var view = ref _filter.Get2(0).Value;
+                ref var view = ref _filter.Get2(i).Value;
                 view.Destroy();
-                _filter.GetEntity(0).Destroy();
+                _filter.GetEntity(i).Destroy();
             }
         }
     }
