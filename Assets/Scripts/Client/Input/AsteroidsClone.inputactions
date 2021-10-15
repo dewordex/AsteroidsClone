@@ -20,6 +20,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "BulletAttack",
+                    "type": "Button",
+                    "id": "f866217d-2330-40ce-b8a0-00485273659d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -66,6 +74,17 @@
                     "action": "Rotation",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "a10b6ef6-47ab-4a69-9189-9570b209f4c5",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "BulletAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

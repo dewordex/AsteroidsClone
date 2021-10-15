@@ -33,6 +33,14 @@ public class @SpaceShipInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""BulletAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""f866217d-2330-40ce-b8a0-00485273659d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -79,6 +87,17 @@ public class @SpaceShipInput : IInputActionCollection, IDisposable
                     ""action"": ""Rotation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a10b6ef6-47ab-4a69-9189-9570b209f4c5"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""BulletAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -656,6 +675,7 @@ public class @SpaceShipInput : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Forward = m_Player.FindAction("Forward", throwIfNotFound: true);
         m_Player_Rotation = m_Player.FindAction("Rotation", throwIfNotFound: true);
+        m_Player_BulletAttack = m_Player.FindAction("BulletAttack", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -719,12 +739,14 @@ public class @SpaceShipInput : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Forward;
     private readonly InputAction m_Player_Rotation;
+    private readonly InputAction m_Player_BulletAttack;
     public struct PlayerActions
     {
         private @SpaceShipInput m_Wrapper;
         public PlayerActions(@SpaceShipInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Forward => m_Wrapper.m_Player_Forward;
         public InputAction @Rotation => m_Wrapper.m_Player_Rotation;
+        public InputAction @BulletAttack => m_Wrapper.m_Player_BulletAttack;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -740,6 +762,9 @@ public class @SpaceShipInput : IInputActionCollection, IDisposable
                 @Rotation.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotation;
                 @Rotation.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotation;
                 @Rotation.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotation;
+                @BulletAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBulletAttack;
+                @BulletAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBulletAttack;
+                @BulletAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBulletAttack;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -750,6 +775,9 @@ public class @SpaceShipInput : IInputActionCollection, IDisposable
                 @Rotation.started += instance.OnRotation;
                 @Rotation.performed += instance.OnRotation;
                 @Rotation.canceled += instance.OnRotation;
+                @BulletAttack.started += instance.OnBulletAttack;
+                @BulletAttack.performed += instance.OnBulletAttack;
+                @BulletAttack.canceled += instance.OnBulletAttack;
             }
         }
     }
@@ -908,6 +936,7 @@ public class @SpaceShipInput : IInputActionCollection, IDisposable
     {
         void OnForward(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
+        void OnBulletAttack(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

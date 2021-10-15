@@ -1,4 +1,5 @@
-﻿using GameLogic.Dependencies;
+﻿using System;
+using GameLogic.Dependencies;
 using UnityEngine.InputSystem;
 
 namespace Client.Dependencies
@@ -13,11 +14,16 @@ namespace Client.Dependencies
             var input = new SpaceShipInput();
             _playerForwardMovement = input.Player.Forward;
             _playerRotationMovement = input.Player.Rotation;
+            var bulletAttack = input.Player.BulletAttack;
             _playerForwardMovement.Enable();
             _playerRotationMovement.Enable();
+            bulletAttack.Enable();
+
+            bulletAttack.started += context => BulletAttack();
         }
 
         public float Forward => _playerForwardMovement.ReadValue<float>();
         public float Rotation => _playerRotationMovement.ReadValue<float>();
+        public event Action BulletAttack = delegate { };
     }
 }
