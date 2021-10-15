@@ -20,6 +20,8 @@ namespace GameLogic.Descriptions.GameDescriptions
         public override void SetupSystems(EcsSystems systems)
         {
             systems.Add(new EntityFactoryInstallSystem());
+            systems.Add(new BulletSpawnSystem());
+            systems.Add(new ShootDelaySystem());
             systems.Add(new TimeSessionSystem());
             systems.Add(new AsteroidsSpawnSystem());
             systems.Add(new UfoSpawnSystem());
@@ -30,8 +32,11 @@ namespace GameLogic.Descriptions.GameDescriptions
             systems.Add(new SpaceshipMovementSystem());
             systems.Add(new AsteroidsDirectionSystem());
             systems.Add(new MovementInDirectionSystem());
+            systems.Add(new AmmoCollisionSystem());
             systems.Add(new TeleportationSystem());
+            systems.Add(new LifeTimeSystem());
             systems.Add(new SpaceshipDeathSystem());
+            systems.Add(new AsteroidDeathSystem());
             systems.Add(new EntityDestroySystem());
         }
     }

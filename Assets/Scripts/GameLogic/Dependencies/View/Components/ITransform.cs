@@ -8,5 +8,6 @@ namespace GameLogic.Dependencies.View.Components
         Vector2 Position { get; set; }
         void Rotate(float angle);
         Vector2 Scale { get; }
+        float Rotation { get; set; }
     }
 }

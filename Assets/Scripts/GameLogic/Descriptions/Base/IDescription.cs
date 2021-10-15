@@ -2,6 +2,5 @@
 {
     public interface IDescription
     {
-        string ViewId { get; }
     }
 }

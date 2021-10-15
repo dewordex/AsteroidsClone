@@ -3,7 +3,7 @@ using GameLogic.Descriptions.Base;
 
 namespace GameLogic.Descriptions.Entity
 {
-    public class MovableEntityDescription : IDescription
+    public class MovableEntityDescription : IViewDescription
     {
         public string ViewId { get; }
         public readonly Vector2 InstantVelocity;

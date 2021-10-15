@@ -14,6 +14,8 @@ namespace GameLogic.Descriptions
             { DescriptionIds.AsteroidFast, new MovableEntityDescription("asteroid", new Vector2(5, 0)) },
             { DescriptionIds.SpaceshipDefault, new SpaceshipDescription("spaceship", 15, 2) },
             { DescriptionIds.UfoDefault, new MovableEntityDescription("ufo", new Vector2(5, 0)) },
+            { DescriptionIds.BulletDefault, new AmmoDescription("bullet", new Vector2(15, 0), 3f) },
+            { DescriptionIds.BulletWeapon, new WeaponDescription(0.25f) },
         };
     }
 }

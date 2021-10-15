@@ -2,7 +2,7 @@
 
 namespace GameLogic.Descriptions.Entity
 {
-    public class SpaceshipDescription : IDescription
+    public class SpaceshipDescription : IViewDescription
     {
         public string ViewId { get; }
         public readonly float Acceleration;
