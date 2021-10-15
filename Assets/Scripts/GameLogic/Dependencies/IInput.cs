@@ -7,5 +7,6 @@ namespace GameLogic.Dependencies
         float Forward { get; }
         float Rotation { get; }
         event Action BulletAttack;
+        event Action LaserAttack;
     }
 }

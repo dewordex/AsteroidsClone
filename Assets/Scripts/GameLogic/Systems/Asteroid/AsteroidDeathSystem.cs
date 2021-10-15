@@ -1,7 +1,7 @@
 ﻿using GameLogic.Components;
 using Leopotam.Ecs;
 
-namespace GameLogic.Systems
+namespace GameLogic.Systems.Asteroid
 {
     public class AsteroidDeathSystem : IEcsRunSystem
     {

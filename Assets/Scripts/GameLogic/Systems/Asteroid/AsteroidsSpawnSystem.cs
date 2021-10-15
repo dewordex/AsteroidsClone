@@ -7,7 +7,7 @@ using GameLogic.Descriptions.Ids;
 using GameLogic.Descriptions.Settings;
 using Leopotam.Ecs;
 
-namespace GameLogic.Systems
+namespace GameLogic.Systems.Asteroid
 {
     public class AsteroidsSpawnSystem : IEcsInitSystem, IEcsRunSystem
     {

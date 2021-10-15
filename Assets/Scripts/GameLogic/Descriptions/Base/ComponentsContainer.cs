@@ -8,15 +8,21 @@ namespace GameLogic.Descriptions.Base
     {
         public EcsEntity EcsEntity { get; private set; }
         public TView View { get; private set; }
+        public TDescription Description { get; private set; }
 
         public void InstallComponents(EcsEntity entity, IView view, IDescription description)
         {
             View = (TView)view;
             EcsEntity = entity;
             if (description is TDescription cDescription)
+            {
+                Description = cDescription;
                 Setup(cDescription);
+            }
             else
+            {
                 throw new Exception($"{typeof(TDescription)} was expected, but {description.GetType()} was received");
+            }
         }
 
         protected abstract void Setup(TDescription description);

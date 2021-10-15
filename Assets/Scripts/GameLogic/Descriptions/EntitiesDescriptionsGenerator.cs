@@ -16,6 +16,8 @@ namespace GameLogic.Descriptions
             { DescriptionIds.UfoDefault, new MovableEntityDescription("ufo", new Vector2(5, 0)) },
             { DescriptionIds.BulletDefault, new AmmoDescription("bullet", new Vector2(15, 0), 3f) },
             { DescriptionIds.BulletWeapon, new WeaponDescription(0.25f) },
+            { DescriptionIds.LaserWeapon, new LaserWeaponDescription(0.5f,10, 5) },
+            { DescriptionIds.LaserDefault, new LaserDescription("laser", 0.5f) },
         };
     }
 }

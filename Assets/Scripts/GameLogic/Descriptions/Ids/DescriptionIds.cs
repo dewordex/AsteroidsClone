@@ -8,5 +8,7 @@
         public const string UfoDefault = "ufo_default";
         public const string BulletDefault = "bullet_default";
         public const string BulletWeapon = "bullet_weapon";
+        public const string LaserWeapon = "laser_weapon";
+        public const string LaserDefault = "laser_default";
     }
 }
