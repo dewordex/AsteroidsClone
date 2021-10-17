@@ -15,15 +15,19 @@ namespace Client.Dependencies
             _playerForwardMovement = input.Player.Forward;
             _playerRotationMovement = input.Player.Rotation;
             var bulletAttack = input.Player.BulletAttack;
+            var laserAttack = input.Player.LaserAttack;
             _playerForwardMovement.Enable();
             _playerRotationMovement.Enable();
             bulletAttack.Enable();
+            laserAttack.Enable();
 
             bulletAttack.started += context => BulletAttack();
+            laserAttack.started += context => LaserAttack();
         }
 
         public float Forward => _playerForwardMovement.ReadValue<float>();
         public float Rotation => _playerRotationMovement.ReadValue<float>();
         public event Action BulletAttack = delegate { };
+        public event Action LaserAttack = delegate { };
     }
 }

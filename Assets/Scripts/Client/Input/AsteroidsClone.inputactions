@@ -28,6 +28,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press"
+                },
+                {
+                    "name": "LaserAttack",
+                    "type": "Button",
+                    "id": "67dfeaa9-8c1f-41a4-8841-a37df44b0a17",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -83,6 +91,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "BulletAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ee140a60-ea8d-441b-851a-3a750faa21b9",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "LaserAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

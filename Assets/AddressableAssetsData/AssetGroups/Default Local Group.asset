@@ -30,7 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: 9296ba7f630be894e8fcd719e5b1baec
-    m_Address: Assets/Prefabs/Bullet.prefab
+    m_Address: bullet
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f4796850c7c09f94d8a166c135c1a42c
+    m_Address: laser
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0

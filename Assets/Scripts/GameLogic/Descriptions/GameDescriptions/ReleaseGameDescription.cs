@@ -1,5 +1,7 @@
 ﻿using GameLogic.Descriptions.Settings;
 using GameLogic.Systems;
+using GameLogic.Systems.Asteroid;
+using GameLogic.Systems.Laser;
 using GameLogic.Systems.Spaceship;
 using GameLogic.Systems.Spaceship.Movement;
 using GameLogic.Systems.Teleportation;
@@ -21,6 +23,10 @@ namespace GameLogic.Descriptions.GameDescriptions
         {
             systems.Add(new EntityFactoryInstallSystem());
             systems.Add(new BulletSpawnSystem());
+            systems.Add(new LaserWeaponInitSystem());
+            systems.Add(new LaserShotEmitterSystem());
+            systems.Add(new LaserSpawnSystem());
+            systems.Add(new LaserNumbersShotsIncreaseSystem());
             systems.Add(new ShootDelaySystem());
             systems.Add(new TimeSessionSystem());
             systems.Add(new AsteroidsSpawnSystem());
@@ -38,6 +44,7 @@ namespace GameLogic.Descriptions.GameDescriptions
             systems.Add(new SpaceshipDeathSystem());
             systems.Add(new AsteroidDeathSystem());
             systems.Add(new EntityDestroySystem());
+
         }
     }
 }

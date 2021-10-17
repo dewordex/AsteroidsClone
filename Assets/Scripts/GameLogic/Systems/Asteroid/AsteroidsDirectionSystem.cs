@@ -4,7 +4,7 @@ using GameLogic.Dependencies;
 using GameLogic.Dependencies.View.Components;
 using Leopotam.Ecs;
 
-namespace GameLogic.Systems
+namespace GameLogic.Systems.Asteroid
 {
     public class AsteroidsDirectionSystem : IEcsRunSystem
     {
