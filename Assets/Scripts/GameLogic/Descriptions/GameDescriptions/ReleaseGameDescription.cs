@@ -2,6 +2,7 @@
 using GameLogic.Systems;
 using GameLogic.Systems.Asteroid;
 using GameLogic.Systems.Laser;
+using GameLogic.Systems.Meteor;
 using GameLogic.Systems.Spaceship;
 using GameLogic.Systems.Spaceship.Movement;
 using GameLogic.Systems.Teleportation;
@@ -38,9 +39,11 @@ namespace GameLogic.Descriptions.GameDescriptions
             systems.Add(new SpaceshipMovementSystem());
             systems.Add(new AsteroidsDirectionSystem());
             systems.Add(new MovementInDirectionSystem());
-            systems.Add(new AmmoCollisionSystem());
+            systems.Add(new CollisionSystem());
             systems.Add(new TeleportationSystem());
             systems.Add(new LifeTimeSystem());
+            systems.Add(new AsteroidSeparationSystem());
+            systems.Add(new MeteorSpawnSystem());
             systems.Add(new SpaceshipDeathSystem());
             systems.Add(new AsteroidDeathSystem());
             systems.Add(new EntityDestroySystem());

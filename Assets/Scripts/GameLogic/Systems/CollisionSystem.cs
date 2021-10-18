@@ -5,7 +5,7 @@ using Leopotam.Ecs;
 
 namespace GameLogic.Systems
 {
-    public class AmmoCollisionSystem : IEcsRunSystem
+    public class CollisionSystem : IEcsRunSystem
     {
         private EcsFilter<CollisionEvent>.Exclude<ManualCollisionProcessingComponent> _filter;
 
