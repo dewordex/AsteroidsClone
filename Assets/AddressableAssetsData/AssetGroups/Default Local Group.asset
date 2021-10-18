@@ -38,7 +38,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
   - m_GUID: eba84c03e9ee87d4eaa49979f2697081
-    m_Address: Assets/Prefabs/Meteor.prefab
+    m_Address: meteor
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0
