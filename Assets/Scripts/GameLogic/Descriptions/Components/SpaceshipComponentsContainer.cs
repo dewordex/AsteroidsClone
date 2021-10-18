@@ -14,6 +14,7 @@ namespace GameLogic.Descriptions.Components
             AddComponent(new VelocityComponent());
             AddComponent(new RigidbodyComponent() { Acceleration = description.Acceleration, Mass = description.Mass });
             AddComponent(new PlayerComponent());
+            AddComponent(new StatsComponent());
         }
     }
 }

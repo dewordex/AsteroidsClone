@@ -21,6 +21,14 @@ namespace Client.Dependencies.View.Components
         }
 
         public void Rotate(float angle) => _transform.Rotate(_rotationVector, angle);
+
+        public float GetRotateAngle()
+        {
+            _transform.rotation.ToAngleAxis(out var angle, out var axis);
+            return axis.z > 0 ? angle * -1 : angle;;
+        }
+
+
         public Vector2 Scale => new Vector2(_transform.lossyScale.x, _transform.lossyScale.y);
 
         public float Rotation
