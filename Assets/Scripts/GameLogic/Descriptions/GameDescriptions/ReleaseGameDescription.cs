@@ -38,7 +38,7 @@ namespace GameLogic.Descriptions.GameDescriptions
             systems.Add(new SpaceshipMovementSystem());
             systems.Add(new AsteroidsDirectionSystem());
             systems.Add(new MovementInDirectionSystem());
-            systems.Add(new AmmoCollisionSystem());
+            systems.Add(new CollisionSystem());
             systems.Add(new TeleportationSystem());
             systems.Add(new LifeTimeSystem());
             systems.Add(new SpaceshipDeathSystem());
