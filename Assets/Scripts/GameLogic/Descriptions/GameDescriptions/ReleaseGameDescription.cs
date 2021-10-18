@@ -44,6 +44,7 @@ namespace GameLogic.Descriptions.GameDescriptions
             systems.Add(new LifeTimeSystem());
             systems.Add(new AsteroidSeparationSystem());
             systems.Add(new MeteorSpawnSystem());
+            systems.Add(new StatsSystem());
             systems.Add(new SpaceshipDeathSystem());
             systems.Add(new AsteroidDeathSystem());
             systems.Add(new EntityDestroySystem());
