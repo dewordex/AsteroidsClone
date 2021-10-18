@@ -14,8 +14,8 @@ namespace GameLogic.Descriptions.GameDescriptions
     {
         protected override void SetupAll(EcsSystems systems)
         {
-            systems.Inject(new AsteroidsSpawnSetting(20, 600, 4));
-            systems.Inject(new UfoSpawnSetting((20,60)));
+            systems.Inject(new AsteroidsSpawnSetting(40, 600, 4));
+            systems.Inject(new UfoSpawnSetting((5,20)));
             systems.Inject(new EntityFactory());
             systems.Inject(new EntitiesDescriptionsGenerator());
         }
