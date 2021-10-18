@@ -1,4 +1,5 @@
 # AsteroidsClone
+![Безымянный](https://user-images.githubusercontent.com/52322424/137819067-48ce3d9a-aa1a-4e49-a3b4-807199406d31.jpg)
 
 ## Управление
 W - Вперед
