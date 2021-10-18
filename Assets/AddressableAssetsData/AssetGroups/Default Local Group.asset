@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 9f34e5bde594f2248a9b64408b611247
+  m_SerializeEntries:
+  - m_GUID: c2c51e1458a10aa4c909bd7d9de5a29a
+    m_Address: spaceship
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 03106cce621a0f14ab288f09a7087a29
+    m_Address: asteroid
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e66018d712172e64390629ba7f17a330
+    m_Address: ufo
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9296ba7f630be894e8fcd719e5b1baec
+    m_Address: bullet
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f4796850c7c09f94d8a166c135c1a42c
+    m_Address: laser
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: eba84c03e9ee87d4eaa49979f2697081
+    m_Address: meteor
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 28172fe2658bdae4d983f9613b9d265e, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: b7ba1e76aad61884585fd7d4baf795fe, type: 2}
+    - {fileID: 11400000, guid: c26b6e636726b0942aee6c2e3b37c850, type: 2}
