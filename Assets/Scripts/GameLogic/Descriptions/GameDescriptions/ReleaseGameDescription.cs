@@ -47,6 +47,7 @@ namespace GameLogic.Descriptions.GameDescriptions
             systems.Add(new StatsSystem());
             systems.Add(new SpaceshipDeathSystem());
             systems.Add(new AsteroidDeathSystem());
+            systems.Add(new ScoreSystem());
             systems.Add(new EntityDestroySystem());
 
         }

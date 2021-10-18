@@ -12,6 +12,7 @@ namespace GameLogic.Descriptions.Components
         {
             AddComponent(new VelocityComponent());
             AddComponent(new MeteorComponent());
+            AddComponent(new ScoreComponent(200));
             AddComponent(new MotionDirectionComponent());
             AddComponent(new Component<ITransform>(View.Transform));
         }

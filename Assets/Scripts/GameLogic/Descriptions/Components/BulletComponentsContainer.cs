@@ -13,6 +13,7 @@ namespace GameLogic.Descriptions.Components
             AddComponent(new VelocityComponent() { InstantVelocity = description.InstantVelocity });
             AddComponent(new BulletComponent());
             AddComponent(new MotionDirectionComponent());
+            AddComponent(new ScoreComponent(10));
             AddComponent(new LifeTimeComponent() { Time = description.LifeTime });
             AddComponent(new Component<ITransform>(View.Transform));
         }
