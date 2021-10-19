@@ -2,7 +2,7 @@
 ![image](https://user-images.githubusercontent.com/52322424/137819724-72b53b71-e050-4b8b-b45b-e821ca0246e1.png)
 
 
-![Безымянный](https://user-images.githubusercontent.com/52322424/137819067-48ce3d9a-aa1a-4e49-a3b4-807199406d31.jpg)
+![image](https://user-images.githubusercontent.com/52322424/137822759-0b77919a-f50c-482d-8ca6-7ce7d9171bc6.png)
 
 
 ## Используемые Внешние Пакеты
