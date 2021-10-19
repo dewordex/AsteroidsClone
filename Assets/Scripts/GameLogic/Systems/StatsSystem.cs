@@ -24,7 +24,7 @@ namespace GameLogic.Systems
                 stringBuilder.AppendLine($"Позиция: ({transform.Position.X:F0}, {transform.Position.Y:F0})");
                 stringBuilder.AppendLine($"Угол поворота: {transform.GetRotateAngle():F0}");
                 stringBuilder.AppendLine($"Мгновенная скорость: {velocityComponent.InstantVelocity.Length():F0}");
-                stringBuilder.AppendLine($"Число зарядов лазера: {laserWeaponComponent.NumberOfShots}/{laserWeaponComponent.MaxShots})");
+                stringBuilder.AppendLine($"Число зарядов лазера: {laserWeaponComponent.NumberOfShots}/{laserWeaponComponent.MaxShots}");
                 stringBuilder.AppendLine($"Время восстановления лазера: {laserWeaponComponent.RecoveryRate} с");
                 _statsView.SetStats(stringBuilder.ToString());
             }
