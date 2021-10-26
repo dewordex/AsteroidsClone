@@ -1,8 +1,6 @@
-﻿using Leopotam.Ecs;
-
-namespace GameLogic.Events
+﻿namespace GameLogic.Events
 {
-    public struct MeteorSpawnEvent : IEcsIgnoreInFilter
+    public struct MeteorSpawnEvent
     {
     }
 }

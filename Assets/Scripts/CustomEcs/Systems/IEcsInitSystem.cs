@@ -1,6 +1,6 @@
 ﻿namespace CustomEcs.Systems
 {
-    public interface IInitSystem : IEcsSystem
+    public interface IEcsInitSystem : IEcsSystem
     {
         void Init();
     }

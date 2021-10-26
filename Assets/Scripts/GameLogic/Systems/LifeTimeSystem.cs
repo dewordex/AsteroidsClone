@@ -1,13 +1,14 @@
-﻿using GameLogic.Components;
+﻿using CustomEcs.Groups;
+using CustomEcs.Systems;
+using GameLogic.Components;
 using GameLogic.Dependencies;
 using GameLogic.Descriptions.Components;
-using Leopotam.Ecs;
 
 namespace GameLogic.Systems
 {
     public class LifeTimeSystem : IEcsRunSystem
     {
-        private EcsFilter<LifeTimeComponent> _filter;
+        private Group<LifeTimeComponent> _filter;
         private IDeltaTime _deltaTime;
 
         public void Run()

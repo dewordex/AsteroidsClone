@@ -2,9 +2,9 @@
 {
     public class LaserWeaponDescription : WeaponDescription
     {
-        public readonly float MaxShots;
+        public readonly int MaxShots;
         public readonly float RecoveryRate;
-        public LaserWeaponDescription(float shotDelay, float maxShots, float recoveryRate) : base(shotDelay)
+        public LaserWeaponDescription(float shotDelay, int maxShots, float recoveryRate) : base(shotDelay)
         {
             MaxShots = maxShots;
             RecoveryRate = recoveryRate;

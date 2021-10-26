@@ -1,14 +1,17 @@
-﻿using GameLogic.Components;
+﻿using System;
+using CustomEcs.Groups;
+using CustomEcs.Systems;
+using GameLogic.Components;
 using GameLogic.Dependencies;
 using GameLogic.Dependencies.View.Components;
-using Leopotam.Ecs;
 
 namespace GameLogic.Systems
 {
     public class MovementInDirectionSystem : IEcsRunSystem
     {
-        private EcsFilter<MotionDirectionComponent, Component<ITransform>, VelocityComponent> _filter;
+        private Group<MotionDirectionComponent, Component<ITransform>, VelocityComponent> _filter;
         private IDeltaTime _deltaTime;
+
         public void Run()
         {
             foreach (var i in _filter)

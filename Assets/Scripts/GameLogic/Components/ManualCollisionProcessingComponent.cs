@@ -1,8 +1,6 @@
-﻿using Leopotam.Ecs;
-
-namespace GameLogic.Components
+﻿namespace GameLogic.Components
 {
-    public struct ManualCollisionProcessingComponent : IEcsIgnoreInFilter
+    public struct ManualCollisionProcessingComponent 
     {
     }
 }

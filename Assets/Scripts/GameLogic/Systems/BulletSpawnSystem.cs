@@ -1,4 +1,7 @@
 ﻿using System.Numerics;
+using CustomEcs;
+using CustomEcs.Groups;
+using CustomEcs.Systems;
 using GameLogic.Components;
 using GameLogic.Dependencies;
 using GameLogic.Dependencies.View.Components;
@@ -6,7 +9,6 @@ using GameLogic.Descriptions;
 using GameLogic.Descriptions.Components;
 using GameLogic.Descriptions.Entity;
 using GameLogic.Descriptions.Ids;
-using Leopotam.Ecs;
 
 namespace GameLogic.Systems
 {
@@ -16,10 +18,10 @@ namespace GameLogic.Systems
         private IEntityFactory _entityFactory;
         private IInput _input;
         private EntitiesDescriptionsGenerator _entitiesDescriptionsGenerator;
-        private EcsFilter<Component<ITransform>, PlayerComponent> _filter;
-        private EcsFilter<ShotDelayComponent, BulletComponent> _shootDelayFilter;
+        private Group<Component<ITransform>, PlayerComponent> _filter;
+        private Group<ShotDelayComponent, BulletComponent> _shootDelayFilter;
 
-        [EcsIgnoreInject] private float _shotDelay;
+        [IgnoreInject] private float _shotDelay;
 
         public void Init()
         {
@@ -30,7 +32,7 @@ namespace GameLogic.Systems
 
         private void OnBulletAttack()
         {
-            if (_shootDelayFilter.IsEmpty() == false && _filter.IsEmpty() == false && _shootDelayFilter.Get1(0).Delay <= 0)
+            if (_shootDelayFilter.IsEmpty == false && _filter.IsEmpty == false && _shootDelayFilter.Get1(0).Delay <= 0)
             {
                 _shootDelayFilter.Get1(0).Delay = _shotDelay;
                 var transform = _filter.Get1(0).Value;
@@ -45,4 +47,3 @@ namespace GameLogic.Systems
         }
     }
 }
-

@@ -2,13 +2,13 @@
 {
     public struct LaserWeaponComponent
     {
-        public readonly float MaxShots;
+        public readonly int MaxShots;
         public readonly float RecoveryRate;
         public readonly float ShootDelay;
-        public float NumberOfShots;
-        
+        public int NumberOfShots;
 
-        public LaserWeaponComponent(float maxShots, float recoveryRate, float numberOfShots, float shootDelay)
+
+        public LaserWeaponComponent(int maxShots, float recoveryRate, int numberOfShots, float shootDelay)
         {
             MaxShots = maxShots;
             RecoveryRate = recoveryRate;

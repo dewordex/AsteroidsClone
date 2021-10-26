@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using CustomEcs.Systems;
 using GameLogic.Dependencies.Base;
-using Leopotam.Ecs;
 using UnityEngine;
 
 namespace Client.Dependencies
@@ -11,7 +11,7 @@ namespace Client.Dependencies
         [SerializeField] private List<GameObject> _gameObjects;
         private List<object> _dependencies = new List<object>();
 
-        public void InjectDependencies(List<EcsSystems> systems)
+        public void InjectDependencies(List<EcsSystem> systems)
         {
             SetupDependencies();
             

@@ -18,9 +18,4 @@ namespace GameLogic.Descriptions.Components
             AddComponent(new Component<ITransform>(View.Transform));
         }
     }
-
-    public struct LifeTimeComponent
-    {
-        public float Time;
-    }
 }

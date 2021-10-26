@@ -19,11 +19,7 @@ namespace Client
 
         private void Start()
         {
-            var (ecsWorld, ecsSystemsList) = _gameStarter.Init(new ReleaseGameDescription());
-#if UNITY_EDITOR
-            Leopotam.Ecs.UnityIntegration.EcsWorldObserver.Create(ecsWorld);
-            foreach (var system in ecsSystemsList) Leopotam.Ecs.UnityIntegration.EcsSystemsObserver.Create(system);
-#endif
+            var (_, ecsSystemsList) = _gameStarter.Init(new ReleaseGameDescription());
             _dependenciesContainer.InjectDependencies(ecsSystemsList);
             _gameStarter.Start();
         }
@@ -31,6 +27,5 @@ namespace Client
         private void Update() => _gameStarter.UpdateLoop();
         private void LateUpdate() => _gameStarter.LateUpdateLoop();
         private void FixedUpdate() => _gameStarter.FixedUpdateLoop();
-        private void OnDestroy() => _gameStarter.Destroy();
     }
 }

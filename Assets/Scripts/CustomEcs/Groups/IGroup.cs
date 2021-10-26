@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace CustomEcs.Groups
+﻿namespace CustomEcs.Groups
 {
-    public interface IGroup : IEnumerable<uint>
+    public interface IGroup
     {
+        int GetEntitiesCount();
     }
 }

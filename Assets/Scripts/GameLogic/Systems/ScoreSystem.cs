@@ -1,19 +1,21 @@
-﻿using GameLogic.Components;
-using Leopotam.Ecs;
+﻿using CustomEcs;
+using CustomEcs.Groups;
+using CustomEcs.Systems;
+using GameLogic.Components;
 
 namespace GameLogic.Systems
 {
     public class ScoreSystem : IEcsInitSystem, IEcsRunSystem
     {
         private EcsWorld _world;
-        private EcsFilter<ScoreComponent, DeathComponent> _scoresFilter;
-        private EcsFilter<GameScoreComponent> _gameScoreFilter;
+        private Group<ScoreComponent, DeathComponent> _scoresFilter;
+        private Group<GameScoreComponent> _gameScoreFilter;
 
         public void Init() => _world.NewEntity().Replace(new GameScoreComponent());
 
         public void Run()
         {
-            if (_gameScoreFilter.IsEmpty() == false)
+            if (_gameScoreFilter.IsEmpty == false)
             {
                 foreach (var i in _scoresFilter)
                 {

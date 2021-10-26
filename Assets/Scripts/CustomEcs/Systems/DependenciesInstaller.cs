@@ -50,16 +50,18 @@ namespace CustomEcs.Systems
             if (Attribute.IsDefined(fieldInfo, typeof(IgnoreInjectAttribute)) == false)
             {
                 var type = fieldInfo.FieldType;
-                if (dependencies.TryGetValue(type, out var dependency))
+                foreach (var pair in dependencies)
                 {
-                    fieldInfo.SetValue(system, dependency);
+                    if (type.IsAssignableFrom(pair.Key))
+                    {
+                        fieldInfo.SetValue(system, pair.Value);
+                        return;
+                    }
                 }
-                else
-                {
+                
 #if UNITY_EDITOR
-                    Debug.LogError($"Failed to install dependencies. For the [{system.GetType()}] no instance found [{type}]");
+                Debug.LogError($"Failed to install dependencies. For the [{system.GetType()}] no instance found [{type}]");
 #endif
-                }
             }
         }
     }

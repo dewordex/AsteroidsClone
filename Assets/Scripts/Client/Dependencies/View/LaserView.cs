@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Client.Dependencies.Addressable;
+using CustomEcs;
 using GameLogic.Dependencies.View;
 using GameLogic.Events;
-using Leopotam.Ecs;
 using UnityEngine;
 using Vector2 = System.Numerics.Vector2;
 
@@ -36,7 +36,7 @@ namespace Client.Dependencies.View
                     var senderView = GetComponent<IView>();
                     var targetView = raycastHit2D.collider.GetComponent<IView>();
 
-                    if (senderView != null && targetView != null && senderView.EntityLink.IsAlive() && targetView.EntityLink.IsAlive())
+                    if (senderView != null && targetView != null && senderView.EntityLink.IsAlive && targetView.EntityLink.IsAlive)
                     {
                         if (targetView.EntityLink.Has<CollisionEvent>())
                         {

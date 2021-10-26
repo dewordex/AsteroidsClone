@@ -1,6 +1,7 @@
-﻿using Leopotam.Ecs;
-
-namespace GameLogic.Components
+﻿namespace GameLogic.Components
 {
-    public struct UfoComponent : IEcsIgnoreInFilter { }
+    public struct UfoComponent
+    {
+
+    }
 }

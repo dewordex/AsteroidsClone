@@ -1,8 +1,8 @@
 ﻿using System;
+using CustomEcs;
 using GameLogic.Components;
 using GameLogic.Dependencies.View;
 using GameLogic.Descriptions.Base;
-using Leopotam.Ecs;
 
 namespace GameLogic.Descriptions
 {
