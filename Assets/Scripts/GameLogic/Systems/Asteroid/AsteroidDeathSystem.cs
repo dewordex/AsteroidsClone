@@ -1,16 +1,17 @@
-﻿using GameLogic.Components;
-using Leopotam.Ecs;
+﻿using CustomEcs.Groups;
+using CustomEcs.Systems;
+using GameLogic.Components;
 
 namespace GameLogic.Systems.Asteroid
 {
     public class AsteroidDeathSystem : IEcsRunSystem
     {
-        private EcsFilter<DeathComponent, AsteroidComponent> _filter;
-        private EcsFilter<AsteroidsSessionComponent> _asteroidSessionFilter;
+        private Group<DeathComponent, AsteroidComponent> _filter;
+        private Group<AsteroidsSessionComponent> _asteroidSessionFilter;
 
         public void Run()
         {
-            if (_asteroidSessionFilter.IsEmpty() == false)
+            if (_asteroidSessionFilter.IsEmpty == false)
             {
                 ref var asteroidsSessionComponent = ref _asteroidSessionFilter.Get1(0);;
                 foreach (var unused in _filter)

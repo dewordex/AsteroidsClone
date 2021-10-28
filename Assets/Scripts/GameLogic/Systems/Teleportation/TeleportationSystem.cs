@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Numerics;
+using CustomEcs.Groups;
+using CustomEcs.Systems;
 using GameLogic.Components;
 using GameLogic.Dependencies;
 using GameLogic.Dependencies.View.Components;
-using Leopotam.Ecs;
 
 namespace GameLogic.Systems.Teleportation
 {
     public class TeleportationSystem : IEcsRunSystem
     {
-        private EcsFilter<Component<ITransform>, VelocityComponent> _filter;
+        private Group<Component<ITransform>, VelocityComponent> _filter;
         private ICamera _camera;
         private const float Offset = 0.1f;
 

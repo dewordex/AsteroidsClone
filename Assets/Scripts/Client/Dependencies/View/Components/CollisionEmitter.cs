@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
+using CustomEcs;
 using GameLogic.Dependencies.View;
 using GameLogic.Events;
-using Leopotam.Ecs;
 using UnityEngine;
 
 namespace Client.Dependencies.View.Components
@@ -13,7 +13,7 @@ namespace Client.Dependencies.View.Components
             var senderEntity = GetComponent<IView>().EntityLink;
             var targetEntity = other.GetComponent<IView>().EntityLink;
 
-            if (senderEntity.IsAlive() && targetEntity.IsAlive())
+            if (senderEntity.IsAlive && targetEntity.IsAlive)
             {
                 if (senderEntity.Has<CollisionEvent>())
                 {

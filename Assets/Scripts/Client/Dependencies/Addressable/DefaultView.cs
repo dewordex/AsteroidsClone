@@ -1,5 +1,5 @@
-﻿using GameLogic.Dependencies.View;
-using Leopotam.Ecs;
+﻿using CustomEcs;
+using GameLogic.Dependencies.View;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 

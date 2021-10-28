@@ -1,8 +1,6 @@
-﻿using Leopotam.Ecs;
-
-namespace GameLogic.Events
+﻿namespace GameLogic.Events
 {
-    public struct LaserShootEvent : IEcsIgnoreInFilter
+    public struct LaserShootEvent
     {
     }
 }

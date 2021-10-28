@@ -20,14 +20,14 @@ namespace Client.Dependencies.View.Components
             set => _transform.position = new Vector3(value.X, value.Y, 0);
         }
 
-        public void Rotate(float angle) => _transform.Rotate(_rotationVector, angle);
-
-        public float GetRotateAngle()
+        public void Rotate(float angle)
         {
-            _transform.rotation.ToAngleAxis(out var angle, out var axis);
-            return axis.z > 0 ? angle * -1 : angle;;
+            _transform.Rotate(_rotationVector, angle);
+            _transform.rotation.ToAngleAxis(out var currentAngle, out var axis);
+            Angle = axis.z > 0 ? currentAngle * -1 : currentAngle;
         }
 
+        public float Angle { get; private set; }
 
         public Vector2 Scale => new Vector2(_transform.lossyScale.x, _transform.lossyScale.y);
 

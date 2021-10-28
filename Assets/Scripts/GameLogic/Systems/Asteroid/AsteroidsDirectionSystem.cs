@@ -1,14 +1,15 @@
 ﻿using System.Numerics;
+using CustomEcs.Groups;
+using CustomEcs.Systems;
 using GameLogic.Components;
 using GameLogic.Dependencies;
 using GameLogic.Dependencies.View.Components;
-using Leopotam.Ecs;
 
 namespace GameLogic.Systems.Asteroid
 {
     public class AsteroidsDirectionSystem : IEcsRunSystem
     {
-        EcsFilter<MotionDirectionComponent, Component<ITransform>, AsteroidComponent>.Exclude<LockDirectionComponent> _filter;
+        Group<MotionDirectionComponent, Component<ITransform>, SetupDirectionComponent, AsteroidComponent> _filter;
         private IRandom _random;
         private ICamera _camera;
 
@@ -20,7 +21,7 @@ namespace GameLogic.Systems.Asteroid
                 ref var transform = ref _filter.Get2(i).Value;
                 var randomPositionInsideCamera = _random.GetRandomPositionInsideCamera(_camera.OrthographicSize, _camera.Aspect);
                 motionDirectionComponent.Direction = Vector2.Normalize(randomPositionInsideCamera - transform.Position);
-                _filter.GetEntity(i).Replace(new LockDirectionComponent());
+                _filter.GetEntity(i).Delete<SetupDirectionComponent>();
             }
         }
     }

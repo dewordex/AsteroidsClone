@@ -1,6 +1,6 @@
 ﻿using System;
+using CustomEcs;
 using GameLogic.Dependencies.View;
-using Leopotam.Ecs;
 
 namespace GameLogic.Descriptions.Base
 {

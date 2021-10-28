@@ -1,13 +1,14 @@
-﻿using GameLogic.Components;
+﻿using CustomEcs.Groups;
+using CustomEcs.Systems;
+using GameLogic.Components;
 using GameLogic.Dependencies;
-using Leopotam.Ecs;
 
 namespace GameLogic.Systems
 {
     public class ShootDelaySystem : IEcsRunSystem
     {
         private IDeltaTime _deltaTime;
-        private EcsFilter<ShotDelayComponent> _shootDelayFilter;
+        private Group<ShotDelayComponent> _shootDelayFilter;
 
         public void Run()
         {

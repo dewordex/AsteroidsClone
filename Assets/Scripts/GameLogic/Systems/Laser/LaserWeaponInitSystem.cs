@@ -1,8 +1,9 @@
-﻿using GameLogic.Components;
+﻿using CustomEcs;
+using CustomEcs.Systems;
+using GameLogic.Components;
 using GameLogic.Descriptions;
 using GameLogic.Descriptions.Entity;
 using GameLogic.Descriptions.Ids;
-using Leopotam.Ecs;
 
 namespace GameLogic.Systems.Laser
 {

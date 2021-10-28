@@ -1,5 +1,5 @@
-﻿using GameLogic.Dependencies.View;
-using Leopotam.Ecs;
+﻿using CustomEcs;
+using GameLogic.Dependencies.View;
 
 namespace GameLogic.Descriptions.Base
 {

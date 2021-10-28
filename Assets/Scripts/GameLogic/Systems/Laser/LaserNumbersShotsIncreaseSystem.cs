@@ -1,15 +1,16 @@
-﻿using GameLogic.Components;
+﻿using CustomEcs.Groups;
+using CustomEcs.Systems;
+using GameLogic.Components;
 using GameLogic.Dependencies;
 using GameLogic.Utility;
-using Leopotam.Ecs;
 
 namespace GameLogic.Systems.Laser
 {
     public class LaserNumbersShotsIncreaseSystem : IEcsInitSystem, IEcsRunSystem
     {
-        private EcsFilter<LaserWeaponComponent> _filter;
+        private Group<LaserWeaponComponent> _filter;
         private IDeltaTime _deltaTime;
-        [EcsIgnoreInject] private Timer _timer;
+        [IgnoreInject] private Timer _timer;
 
         public void Run() => _timer.Update(_deltaTime.Value);
 
@@ -21,7 +22,7 @@ namespace GameLogic.Systems.Laser
 
         private void OnElapsed()
         {
-            if (_filter.IsEmpty() == false)
+            if (_filter.IsEmpty == false)
             {
                 ref var laserWeaponComponent = ref _filter.Get1(0);
                 if (laserWeaponComponent.NumberOfShots < laserWeaponComponent.MaxShots)

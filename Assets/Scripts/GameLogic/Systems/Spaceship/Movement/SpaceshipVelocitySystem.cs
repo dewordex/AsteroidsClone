@@ -1,20 +1,21 @@
 ﻿using System.Numerics;
+using CustomEcs.Groups;
+using CustomEcs.Systems;
 using GameLogic.Components;
 using GameLogic.Dependencies;
 using GameLogic.Dependencies.View.Components;
-using Leopotam.Ecs;
 
 namespace GameLogic.Systems.Spaceship.Movement
 {
     public class SpaceshipVelocitySystem : IEcsRunSystem
     {
-        private EcsFilter<VelocityComponent, RigidbodyComponent, Component<ITransform>, PlayerComponent> _filter;
+        private Group<VelocityComponent, RigidbodyComponent, Component<ITransform>, PlayerComponent> _filter;
         private IInput _input;
         private IDeltaTime _deltaTime;
             
         public void Run()
         {
-            if (_filter.IsEmpty() == false)
+            if (_filter.IsEmpty == false)
             {
                 ref var velocityComponent = ref _filter.Get1(0);
                 ref var rigidbodyComponent = ref _filter.Get2(0);

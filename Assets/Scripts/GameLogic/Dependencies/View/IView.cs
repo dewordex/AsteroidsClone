@@ -1,4 +1,4 @@
-﻿using Leopotam.Ecs;
+﻿using CustomEcs;
 
 namespace GameLogic.Dependencies.View
 {

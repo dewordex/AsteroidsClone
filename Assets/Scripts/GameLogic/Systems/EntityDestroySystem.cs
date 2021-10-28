@@ -1,12 +1,13 @@
-﻿using GameLogic.Components;
+﻿using CustomEcs.Groups;
+using CustomEcs.Systems;
+using GameLogic.Components;
 using GameLogic.Dependencies.View;
-using Leopotam.Ecs;
 
 namespace GameLogic.Systems
 {
     public class EntityDestroySystem : IEcsRunSystem
     {
-        private EcsFilter<DeathComponent, Component<IView>> _filter; 
+        private Group<DeathComponent, Component<IView>> _filter; 
         public void Run()
         {
             foreach (var i in _filter)

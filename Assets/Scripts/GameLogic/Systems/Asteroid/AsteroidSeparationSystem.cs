@@ -1,12 +1,13 @@
-﻿using GameLogic.Components;
+﻿using CustomEcs.Groups;
+using CustomEcs.Systems;
+using GameLogic.Components;
 using GameLogic.Events;
-using Leopotam.Ecs;
 
 namespace GameLogic.Systems.Asteroid
 {
     public class AsteroidSeparationSystem : IEcsRunSystem
     {
-        private EcsFilter<CollisionEvent, BulletComponent> _filter;
+        private Group<CollisionEvent, BulletComponent> _filter;
 
         public void Run()
         {
