@@ -1,8 +1,6 @@
-﻿using Leopotam.Ecs;
-
-namespace GameLogic.Components
+﻿namespace GameLogic.Components
 {
-    public struct MeteorComponent : IEcsIgnoreInFilter
+    public struct MeteorComponent
     {
     }
 }

@@ -1,7 +1,7 @@
-﻿using GameLogic.Descriptions;
+﻿using CustomEcs.Systems;
+using GameLogic.Descriptions;
 using GameLogic.Descriptions.Components;
 using GameLogic.Descriptions.Ids;
-using Leopotam.Ecs;
 
 namespace GameLogic.Systems.Spaceship
 {

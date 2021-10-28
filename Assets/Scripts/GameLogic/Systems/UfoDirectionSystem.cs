@@ -1,18 +1,19 @@
 ﻿using System.Numerics;
+using CustomEcs.Groups;
+using CustomEcs.Systems;
 using GameLogic.Components;
 using GameLogic.Dependencies.View.Components;
-using Leopotam.Ecs;
 
 namespace GameLogic.Systems
 {
     public class UfoDirectionSystem : IEcsRunSystem
     {
-        private EcsFilter<MotionDirectionComponent, Component<ITransform>, UfoComponent> _ufoFilter;
-        private EcsFilter<Component<ITransform>, PlayerComponent> _spaceshipFilter;
+        private Group<MotionDirectionComponent, Component<ITransform>, UfoComponent> _ufoFilter;
+        private Group<Component<ITransform>, PlayerComponent> _spaceshipFilter;
 
         public void Run()
         {
-            if (_spaceshipFilter.IsEmpty() == false)
+            if (_spaceshipFilter.IsEmpty == false)
             {
                 foreach (var i in _ufoFilter)
                 {

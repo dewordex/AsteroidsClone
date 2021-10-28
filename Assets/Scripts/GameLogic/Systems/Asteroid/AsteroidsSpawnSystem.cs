@@ -1,11 +1,13 @@
 ﻿using System;
+using CustomEcs;
+using CustomEcs.Groups;
+using CustomEcs.Systems;
 using GameLogic.Components;
 using GameLogic.Dependencies;
 using GameLogic.Descriptions;
 using GameLogic.Descriptions.Components;
 using GameLogic.Descriptions.Ids;
 using GameLogic.Descriptions.Settings;
-using Leopotam.Ecs;
 
 namespace GameLogic.Systems.Asteroid
 {
@@ -17,15 +19,15 @@ namespace GameLogic.Systems.Asteroid
         private IRandom _random;
         private ICamera _camera;
 
-        private EcsFilter<AsteroidsSessionComponent> _asteroidSessionFilter;
-        private EcsFilter<TimeSessionComponent> _timeSessionFilter;
+        private Group<AsteroidsSessionComponent> _asteroidSessionFilter;
+        private Group<TimeSessionComponent> _timeSessionFilter;
 
-        [EcsIgnoreInject] private Random _intRandom = new Random();
+        [IgnoreInject] private Random _intRandom = new Random();
         public void Init() => _world.NewEntity().Replace(new AsteroidsSessionComponent());
 
         public void Run()
         {
-            if (_asteroidSessionFilter.IsEmpty() == false && _timeSessionFilter.IsEmpty() == false)
+            if (_asteroidSessionFilter.IsEmpty == false && _timeSessionFilter.IsEmpty == false)
             {
                 ref var asteroidsSessionComponent = ref _asteroidSessionFilter.Get1(0);
                 var maxAsteroids = _spawnSetting.GetMaxAsteroids(_timeSessionFilter.Get1(0).Time);

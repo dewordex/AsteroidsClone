@@ -1,10 +1,11 @@
-﻿using GameLogic.Dependencies;
+﻿using CustomEcs;
+using CustomEcs.Systems;
+using GameLogic.Dependencies;
 using GameLogic.Descriptions;
 using GameLogic.Descriptions.Components;
 using GameLogic.Descriptions.Ids;
 using GameLogic.Descriptions.Settings;
 using GameLogic.Utility;
-using Leopotam.Ecs;
 
 namespace GameLogic.Systems
 {
@@ -17,7 +18,7 @@ namespace GameLogic.Systems
         private EcsWorld _world;
         private UfoSpawnSetting _spawnSetting;
 
-        [EcsIgnoreInject] private Timer _timer;
+        [IgnoreInject] private Timer _timer;
 
         public void Init() => StartTimer();
 

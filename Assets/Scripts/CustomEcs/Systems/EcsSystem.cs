@@ -35,8 +35,11 @@ namespace CustomEcs.Systems
             foreach (var system in _allSystems)
             {
                 dependenciesInstaller.InstallDependencies(system, _world, _dependencies);
+            }
 
-                if (system is IInitSystem initSystem)
+            foreach (var system in _allSystems)
+            {
+                if (system is IEcsInitSystem initSystem)
                 {
                     initSystem.Init();
                 }
@@ -59,6 +62,7 @@ namespace CustomEcs.Systems
             foreach (var runSystem in _runSystems)
             {
                 runSystem.Run();
+                _world.DeletedComponentsHandler.ClearDeletedComponents();
             }
         }
     }

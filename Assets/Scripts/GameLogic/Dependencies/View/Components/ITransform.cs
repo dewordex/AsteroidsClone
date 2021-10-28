@@ -7,7 +7,7 @@ namespace GameLogic.Dependencies.View.Components
         Vector2 Up { get; }
         Vector2 Position { get; set; }
         void Rotate(float angle);
-        float GetRotateAngle();
+        float Angle { get; }
         Vector2 Scale { get; }
         float Rotation { get; set; }
     }

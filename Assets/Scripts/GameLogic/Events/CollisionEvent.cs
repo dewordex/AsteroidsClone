@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Leopotam.Ecs;
+using CustomEcs;
 
 namespace GameLogic.Events
 {

@@ -1,4 +1,6 @@
 ﻿using System.Numerics;
+using CustomEcs.Groups;
+using CustomEcs.Systems;
 using GameLogic.Components;
 using GameLogic.Dependencies;
 using GameLogic.Dependencies.View.Components;
@@ -6,13 +8,12 @@ using GameLogic.Descriptions;
 using GameLogic.Descriptions.Components;
 using GameLogic.Descriptions.Ids;
 using GameLogic.Events;
-using Leopotam.Ecs;
 
 namespace GameLogic.Systems.Meteor
 {
     public class MeteorSpawnSystem : IEcsRunSystem
     {
-        private EcsFilter<Component<ITransform>, MotionDirectionComponent, VelocityComponent, MeteorSpawnEvent> _filter;
+        private Group<Component<ITransform>, MotionDirectionComponent, VelocityComponent, MeteorSpawnEvent> _filter;
         private IEntityFactory _entityFactory;
         private IRandom _random;
 
@@ -30,7 +31,7 @@ namespace GameLogic.Systems.Meteor
                 }
 
 
-                _filter.GetEntity(i).Del<MeteorSpawnEvent>();
+                _filter.GetEntity(i).Delete<MeteorSpawnEvent>();
             }
         }
 

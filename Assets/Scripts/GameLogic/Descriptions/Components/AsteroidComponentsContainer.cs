@@ -14,6 +14,7 @@ namespace GameLogic.Descriptions.Components
             AddComponent(new AsteroidComponent());
             AddComponent(new MotionDirectionComponent());
             AddComponent(new ScoreComponent(100));
+            AddComponent(new SetupDirectionComponent());
             AddComponent(new Component<ITransform>(View.Transform));
         }
     }
