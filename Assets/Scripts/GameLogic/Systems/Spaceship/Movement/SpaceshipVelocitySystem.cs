@@ -12,7 +12,7 @@ namespace GameLogic.Systems.Spaceship.Movement
         private Group<VelocityComponent, RigidbodyComponent, Component<ITransform>, PlayerComponent> _filter;
         private IInput _input;
         private IDeltaTime _deltaTime;
-            
+
         public void Run()
         {
             if (_filter.IsEmpty == false)

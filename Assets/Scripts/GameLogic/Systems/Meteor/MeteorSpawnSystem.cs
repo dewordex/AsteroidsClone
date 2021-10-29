@@ -3,6 +3,7 @@ using CustomEcs.Groups;
 using CustomEcs.Systems;
 using GameLogic.Components;
 using GameLogic.Dependencies;
+using GameLogic.Dependencies.Base;
 using GameLogic.Dependencies.View.Components;
 using GameLogic.Descriptions;
 using GameLogic.Descriptions.Components;
@@ -27,6 +28,7 @@ namespace GameLogic.Systems.Meteor
 
                 for (int j = 0; j < 3; j++)
                 {
+                    
                     SpawnMeteor(parentPosition, Vector2.Normalize(parentDirection + new Vector2(_random.Range(-1,1), _random.Range(-1,1))), parentVelocity);
                 }
 

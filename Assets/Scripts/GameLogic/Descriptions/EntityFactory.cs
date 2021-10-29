@@ -1,6 +1,7 @@
 ﻿using System;
 using CustomEcs;
 using GameLogic.Components;
+using GameLogic.Dependencies.Base;
 using GameLogic.Dependencies.View;
 using GameLogic.Descriptions.Base;
 
@@ -41,15 +42,5 @@ namespace GameLogic.Descriptions
             _viewLoader = viewLoader;
             _entitiesDescriptionsGenerator = entitiesDescriptionsGenerator;
         }
-    }
-
-    public interface IEntityFactory
-    {
-        IAsyncOperationHandle<IView> StartCreate<T>(T componentsContainer, string descriptionId) where T : IComponentsContainer;
-    }
-
-    public interface IEntityFactorySettings
-    {
-        void Init(EcsWorld world, IViewLoader viewLoader, EntitiesDescriptionsGenerator entitiesDescriptionsGenerator);
     }
 }

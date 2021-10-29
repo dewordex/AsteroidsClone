@@ -1,6 +1,7 @@
 ﻿using CustomEcs.Groups;
 using CustomEcs.Systems;
 using GameLogic.Components;
+using GameLogic.Dependencies.Base;
 using GameLogic.Dependencies.View;
 using GameLogic.Dependencies.View.Components;
 using GameLogic.Descriptions;

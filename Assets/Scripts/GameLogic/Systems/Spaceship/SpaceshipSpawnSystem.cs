@@ -1,4 +1,5 @@
 ﻿using CustomEcs.Systems;
+using GameLogic.Dependencies.Base;
 using GameLogic.Descriptions;
 using GameLogic.Descriptions.Components;
 using GameLogic.Descriptions.Ids;

@@ -15,10 +15,10 @@ namespace GameLogic.Systems
             foreach (var i in _filter)
             {
                 var collisionEvent = _filter.Get1(i);
-                foreach (var valueTuple in collisionEvent.CollisionList.Where(valueTuple => valueTuple.target.IsAlive))
+                foreach (var (sender, target) in collisionEvent.CollisionList.Where(valueTuple => valueTuple.target.IsAlive))
                 {
-                    valueTuple.target.Replace(new DeathComponent());
-                    valueTuple.sender.Replace(new DeathComponent());
+                    target.Replace(new DeathComponent());
+                    sender.Replace(new DeathComponent());
                 }
             }
         }
