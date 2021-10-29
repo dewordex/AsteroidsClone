@@ -30,18 +30,8 @@ namespace CustomEcs.EcsWorldHandlers
             }
         }
 
-        public bool Has<T>(uint entityID) where T : struct
-        {
-            var componentsPool = GetPool<T>();
-            return componentsPool.HasEntity(entityID);
-        }
-
-        public ref T Get<T>(uint entityID) where T : struct
-        {
-            var componentsPool = GetPool<T>();
-            if (componentsPool.HasEntity(entityID) == false) AddIdentifierForEntityComponent(entityID, EcsComponentType<T>.TypeIndex);
-            return ref componentsPool.Get(entityID);
-        }
+        public bool Has<T>(uint entityID) where T : struct => GetPool<T>().HasEntity(entityID);
+        public ref T Get<T>(uint entityID) where T : struct => ref GetPool<T>().Get(entityID);
 
         public IBaseComponentsPool GetBasePool<T>() where T : struct => GetPool<T>();
 

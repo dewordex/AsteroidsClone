@@ -11,11 +11,7 @@ namespace CustomEcs.ComponentsPool
 
         public ref T Get(uint entityId)
         {
-            if (HasEntity(entityId) == false)
-            {
-                AddEntity(entityId);
-            }
-
+            if (HasEntity(entityId) == false) throw new Exception($"This entity has no component {typeof(T)}");
             return ref _items[entityId];
         }
 
