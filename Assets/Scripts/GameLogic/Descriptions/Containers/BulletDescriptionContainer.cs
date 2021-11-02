@@ -8,7 +8,7 @@ namespace GameLogic.Descriptions.Containers
     {
         public BulletDescriptionContainer()
         {
-            Add(DescriptionIds.BulletDefault, new BulletDescription(ViewIds.Bullet, 10, 15, 3));
+            Add(DescriptionIds.BulletDefault, new BulletDescription(ViewIds.Bullet, 0.25f,0.9f,10, 15, 3));
         }
     }
 }

@@ -18,7 +18,7 @@ namespace GameLogic.Systems.Spaceship
             var spaceshipFactory = _factoriesContainer.GetSpaceshipFactory();
             var spaceshipDescription = _descriptions.SpaceshipDescriptionsContainer.Get(DescriptionIds.SpaceshipDefault);
             await spaceshipFactory.CreateViewAsync<IMovableView>(spaceshipDescription.ViewKey);
-            spaceshipFactory.CreateEntity(spaceshipDescription.Acceleration, spaceshipDescription.Mass);
+            spaceshipFactory.CreateEntity(spaceshipDescription.Acceleration, spaceshipDescription.Mass, spaceshipDescription.Size);
         }
     }
 }

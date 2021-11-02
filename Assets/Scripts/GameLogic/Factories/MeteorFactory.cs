@@ -7,13 +7,15 @@ namespace GameLogic.Factories
 {
     public class MeteorFactory : BaseViewFactory
     {
-        public EcsEntity CreateEntity(Vector2 position, Vector2 velocity, Vector2 direction, int score)
+        public EcsEntity CreateEntity(Vector2 position, Vector2 velocity, Vector2 direction, int score, Vector2 size)
         {
             Add(new PositionComponent(){Position = position});
             Add(new VelocityComponent(){InstantVelocity = velocity});
             Add(new MeteorComponent());
             Add(new ScoreComponent(score));
             Add(new MotionDirectionComponent(){Direction = direction});
+            Add(new TeleportationSizeComponent(size));
+
             return Entity;
         }
         

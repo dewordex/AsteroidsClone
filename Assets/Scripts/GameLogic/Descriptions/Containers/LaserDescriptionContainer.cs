@@ -8,7 +8,7 @@ namespace GameLogic.Descriptions.Containers
     {
         public LaserDescriptionContainer()
         {
-            Add(DescriptionIds.Laser,  new LaserDescription(ViewIds.Laser, 1));
+            Add(DescriptionIds.Laser,  new LaserDescription(ViewIds.Laser,1,1, 1));
         }
     }
 }

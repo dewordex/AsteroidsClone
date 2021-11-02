@@ -50,7 +50,8 @@ namespace GameLogic.Systems.Bullet
                     playerRotationComponent.RotationDirection,
                     bulletDescription.InstantVelocity,
                     bulletDescription.Score,
-                    bulletDescription.LifeTime);
+                    bulletDescription.LifeTime,
+                    bulletDescription.Size);
             }
         }
     }

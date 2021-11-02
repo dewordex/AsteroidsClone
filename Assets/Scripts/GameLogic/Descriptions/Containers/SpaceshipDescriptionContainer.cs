@@ -8,7 +8,7 @@ namespace GameLogic.Descriptions.Containers
     {
         public SpaceshipDescriptionContainer()
         {
-            Add(DescriptionIds.SpaceshipDefault, new SpaceshipDescription(ViewIds.Spaceship, 15, 1.5f));
+            Add(DescriptionIds.SpaceshipDefault, new SpaceshipDescription(ViewIds.Spaceship, 1, 1, 15, 1.5f));
         }
     }
 }

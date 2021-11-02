@@ -41,7 +41,7 @@ namespace GameLogic.Systems.Meteor
             var description = _descriptionsContainer.ScoreDescriptionsContainer.Get(DescriptionIds.MeteorDefault);
             var meteorFactory = _factoriesContainer.GetMeteorFactory();
             await meteorFactory.CreateViewAsync<IMovableView>(description.ViewKey);
-            meteorFactory.CreateEntity(parentPosition, instantVelocity, direction, description.Score);
+            meteorFactory.CreateEntity(parentPosition, instantVelocity, direction, description.Score, description.Size);
         }
     }
 }

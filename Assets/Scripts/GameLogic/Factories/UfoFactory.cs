@@ -7,13 +7,14 @@ namespace GameLogic.Factories
 {
     public class UfoFactory : BaseViewFactory
     {
-        public EcsEntity CreateEntity(Vector2 position, Vector2 instantVelocity, int score)
+        public EcsEntity CreateEntity(Vector2 position, Vector2 instantVelocity, int score, Vector2 size)
         {
             Add(new VelocityComponent() { InstantVelocity = instantVelocity });
             Add(new MotionDirectionComponent());
             Add(new ScoreComponent(score));
             Add(new PositionComponent() { Position = position });
             Add(new UfoComponent());
+            Add(new TeleportationSizeComponent(size));
 
             return Entity;
         }

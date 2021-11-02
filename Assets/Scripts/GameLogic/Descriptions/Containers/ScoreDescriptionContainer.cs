@@ -8,7 +8,7 @@ namespace GameLogic.Descriptions.Containers
     {
         public ScoreDescriptionContainer()
         {
-            Add(DescriptionIds.MeteorDefault, new ScoreDescription(ViewIds.Meteor, 200));
+            Add(DescriptionIds.MeteorDefault, new ScoreDescription(ViewIds.Meteor, 1, 1, 200));
         }
     }
 }

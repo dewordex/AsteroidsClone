@@ -4,7 +4,7 @@
     {
         public readonly float LifeTime;
 
-        public BulletDescription(string viewKey, int score, float speed, float lifeTime) : base(viewKey, score, speed)
+        public BulletDescription(string viewKey, float sizeX, float sizeY, int score, float speed, float lifeTime) : base(viewKey, sizeX, sizeY, score, speed)
         {
             LifeTime = lifeTime;
         }

@@ -4,7 +4,7 @@
     {
         public readonly int Score;
 
-        public ScoreDescription(string viewKey, int score) : base(viewKey)
+        public ScoreDescription(string viewKey, float sizeX, float sizeY, int score) : base(viewKey, sizeX, sizeY)
         {
             Score = score;
         }

@@ -9,7 +9,7 @@ namespace GameLogic.Systems.Teleportation
 {
     public class TeleportationSystem : IEcsRunSystem
     {
-        private Group<PositionComponent, VelocityComponent> _filter;
+        private Group<PositionComponent, TeleportationSizeComponent, VelocityComponent> _filter;
         private ICamera _camera;
         private const float Offset = 0.1f;
 
@@ -18,8 +18,10 @@ namespace GameLogic.Systems.Teleportation
             foreach (var i in _filter)
             {
                 ref var positionComponent = ref _filter.Get1(i);
-                var isInSectorX = -_camera.OrthographicSize * _camera.Aspect - 1 < positionComponent.Position.X && positionComponent.Position.X < _camera.OrthographicSize * _camera.Aspect + 1;
-                var isInSectorY = -_camera.OrthographicSize - 1 < positionComponent.Position.Y && positionComponent.Position.Y < _camera.OrthographicSize + 1;
+                ref var sizeComponent = ref _filter.Get2(i);
+                var isInSectorX = -_camera.OrthographicSize * _camera.Aspect - sizeComponent.Size.X < positionComponent.Position.X &&
+                                  positionComponent.Position.X < _camera.OrthographicSize * _camera.Aspect + sizeComponent.Size.X;
+                var isInSectorY = -_camera.OrthographicSize - sizeComponent.Size.Y < positionComponent.Position.Y && positionComponent.Position.Y < _camera.OrthographicSize + sizeComponent.Size.Y;
 
                 if (isInSectorX == false)
                 {

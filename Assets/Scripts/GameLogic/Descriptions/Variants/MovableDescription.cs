@@ -6,7 +6,7 @@ namespace GameLogic.Descriptions.Variants
     {
         public readonly Vector2 InstantVelocity;
 
-        public MovableDescription(string viewKey, int score, float speed) : base(viewKey, score)
+        public MovableDescription(string viewKey, float sizeX, float sizeY, int score, float speed) : base(viewKey, sizeX, sizeY, score)
         {
             InstantVelocity = new Vector2(speed, 0);
         }

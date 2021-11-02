@@ -7,7 +7,7 @@ namespace GameLogic.Factories
 {
     public class BulletFactory : BaseViewFactory
     {
-        public EcsEntity CreateEntity(Vector2 position, Vector2 rotation, Vector2 direction, Vector2 instantVelocity, int score, float lifeTime)
+        public EcsEntity CreateEntity(Vector2 position, Vector2 rotation, Vector2 direction, Vector2 instantVelocity, int score, float lifeTime, Vector2 size)
         {
             Add(new VelocityComponent() { InstantVelocity = instantVelocity });
             Add(new BulletComponent());
@@ -16,6 +16,7 @@ namespace GameLogic.Factories
             Add(new RotationComponent(){RotationDirection =  rotation});
             Add(new ScoreComponent(score));
             Add(new LifeTimeComponent() { Time = lifeTime });
+            Add(new TeleportationSizeComponent(size));
 
             return Entity;
         }

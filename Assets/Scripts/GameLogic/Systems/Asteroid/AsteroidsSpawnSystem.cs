@@ -8,6 +8,7 @@ using GameLogic.Dependencies;
 using GameLogic.Dependencies.View;
 using GameLogic.Descriptions;
 using GameLogic.Descriptions.Ids;
+using GameLogic.Descriptions.Variants;
 using GameLogic.Factories;
 
 namespace GameLogic.Systems.Asteroid
@@ -37,21 +38,20 @@ namespace GameLogic.Systems.Asteroid
 
                 for (int i = 0; i < asteroidsCount; i++)
                 {
-                    var position = _random.GetRandomPositionOutsideCamera(3, _camera.OrthographicSize, _camera.Aspect);
-
-                    SpawnAsync(position);
+                    var descriptionId = _intRandom.Next(0, 2) == 1 ? DescriptionIds.AsteroidDefault : DescriptionIds.AsteroidFast;
+                    var movableDescription = _descriptionsContainer.MovableDescriptionsContainer.Get(descriptionId);
+                    var position = _random.GetRandomPositionOutsideCamera(movableDescription.Size.X, _camera.OrthographicSize, _camera.Aspect);
+                    SpawnAsync(position, movableDescription);
                     asteroidsSessionComponent.AsteroidsCount++;
                 }
             }
         }
 
-        private async void SpawnAsync(Vector2 position)
+        private async void SpawnAsync(Vector2 position, MovableDescription movableDescription)
         {
-            var descriptionId = _intRandom.Next(0, 2) == 1 ? DescriptionIds.AsteroidDefault : DescriptionIds.AsteroidFast;
-            var movableDescription = _descriptionsContainer.MovableDescriptionsContainer.Get(descriptionId);
             var asteroidFactory = _factoriesContainer.GetAsteroidFactory();
             await asteroidFactory.CreateViewAsync<IMovableView>(movableDescription.ViewKey);
-            asteroidFactory.CreateEntity(position, movableDescription.InstantVelocity, movableDescription.Score);
+            asteroidFactory.CreateEntity(position, movableDescription.InstantVelocity, movableDescription.Score, movableDescription.Size);
         }
     }
 }

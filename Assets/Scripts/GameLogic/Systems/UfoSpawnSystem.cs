@@ -29,7 +29,7 @@ namespace GameLogic.Systems
             var movableDescription = _descriptionsContainer.MovableDescriptionsContainer.Get(DescriptionIds.UfoDefault);
             var ufoFactory = _factoriesContainer.GetUfoFactory();
             await ufoFactory.CreateViewAsync<IMovableView>(movableDescription.ViewKey);
-            ufoFactory.CreateEntity(_random.GetRandomPositionOutsideCamera(1, _camera.OrthographicSize, _camera.Aspect), movableDescription.InstantVelocity, movableDescription.Score);
+            ufoFactory.CreateEntity(_random.GetRandomPositionOutsideCamera(movableDescription.Size.X, _camera.OrthographicSize, _camera.Aspect), movableDescription.InstantVelocity, movableDescription.Score, movableDescription.Size);
             StartTimer();
         }
 

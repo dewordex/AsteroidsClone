@@ -7,7 +7,7 @@ namespace GameLogic.Factories
 {
     public class SpaceshipFactory : BaseViewFactory
     {
-        public EcsEntity CreateEntity(float acceleration, float mass)
+        public EcsEntity CreateEntity(float acceleration, float mass, Vector2 size)
         {
             Add(new VelocityComponent());
             Add(new RigidbodyComponent() { Acceleration = acceleration, Mass = mass });
@@ -15,6 +15,7 @@ namespace GameLogic.Factories
             Add(new PositionComponent());
             Add(new RotationComponent() { RotationDirection = new Vector2(0, 1) });
             Add(new StatsComponent());
+            Add(new TeleportationSizeComponent(size));
             return Entity;
         }
 

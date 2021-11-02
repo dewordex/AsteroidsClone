@@ -7,7 +7,7 @@ namespace GameLogic.Factories
 {
     public class AsteroidFactory : BaseViewFactory
     {
-        public EcsEntity CreateEntity(Vector2 position,Vector2 instantVelocity, int score)
+        public EcsEntity CreateEntity(Vector2 position,Vector2 instantVelocity, int score, Vector2 size)
         {
             Add(new VelocityComponent() { InstantVelocity = instantVelocity });
             Add(new AsteroidComponent());
@@ -15,6 +15,7 @@ namespace GameLogic.Factories
             Add(new ScoreComponent(score));
             Add(new SetupDirectionComponent());
             Add(new PositionComponent(){Position = position});
+            Add(new TeleportationSizeComponent(size));
             return Entity;
         }
 

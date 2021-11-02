@@ -8,9 +8,9 @@ namespace GameLogic.Descriptions.Containers
     {
         public MovableDescriptionContainer()
         {
-            Add(DescriptionIds.AsteroidFast, new MovableDescription(ViewIds.Asteroid, 200, 5));
-            Add(DescriptionIds.AsteroidDefault, new MovableDescription(ViewIds.Asteroid, 200, 2));
-            Add(DescriptionIds.UfoDefault, new MovableDescription(ViewIds.Ufo, 200, 5));
+            Add(DescriptionIds.AsteroidFast, new MovableDescription(ViewIds.Asteroid, 2, 2, 200, 5));
+            Add(DescriptionIds.AsteroidDefault, new MovableDescription(ViewIds.Asteroid, 2, 2, 200, 2));
+            Add(DescriptionIds.UfoDefault, new MovableDescription(ViewIds.Ufo, 1, 1, 200, 5));
         }
     }
 }
