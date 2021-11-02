@@ -1,4 +1,5 @@
 ﻿using System;
+using Client.Input;
 using GameLogic.Dependencies;
 using UnityEngine.InputSystem;
 

@@ -1,11 +1,10 @@
 ﻿using CustomEcs;
 using CustomEcs.Systems;
 using GameLogic.Dependencies;
-using GameLogic.Dependencies.Base;
+using GameLogic.Dependencies.View;
 using GameLogic.Descriptions;
-using GameLogic.Descriptions.Components;
 using GameLogic.Descriptions.Ids;
-using GameLogic.Descriptions.Settings;
+using GameLogic.Factories;
 using GameLogic.Utility;
 
 namespace GameLogic.Systems
@@ -14,10 +13,10 @@ namespace GameLogic.Systems
     {
         private IRandom _random;
         private ICamera _camera;
-        private IEntityFactory _factory;
         private IDeltaTime _deltaTime;
         private EcsWorld _world;
-        private UfoSpawnSetting _spawnSetting;
+        private FactoriesContainer _factoriesContainer;
+        private DescriptionsContainer _descriptionsContainer;
 
         [IgnoreInject] private Timer _timer;
 
@@ -25,21 +24,19 @@ namespace GameLogic.Systems
 
         public void Run() => _timer.Update(_deltaTime.Value);
 
-        private void SpawnUfo()
+        private async void SpawnUfo()
         {
-            var ufoComponentsContainer = new UfoComponentsContainer();
-            _factory.StartCreate(ufoComponentsContainer, DescriptionIds.UfoDefault).Completed += handle =>
-            {
-                var movableView = ufoComponentsContainer.View;
-                movableView.Transform.Position = _random.GetRandomPositionOutsideCamera(movableView.Transform.Scale.Length(), _camera.OrthographicSize, _camera.Aspect);
-            };
-
+            var movableDescription = _descriptionsContainer.MovableDescriptionsContainer.Get(DescriptionIds.UfoDefault);
+            var ufoFactory = _factoriesContainer.GetUfoFactory();
+            await ufoFactory.CreateViewAsync<IMovableView>(movableDescription.ViewKey);
+            ufoFactory.CreateEntity(_random.GetRandomPositionOutsideCamera(1, _camera.OrthographicSize, _camera.Aspect), movableDescription.InstantVelocity, movableDescription.Score);
             StartTimer();
         }
 
         private void StartTimer()
         {
-            _timer = new Timer(_random.Range(_spawnSetting.SpawnTimeRange.Min, _spawnSetting.SpawnTimeRange.Max), autoReset: false);
+            var ufoSpawnDescription = _descriptionsContainer.UfoSpawnDescriptionContainer.Get(DescriptionIds.UfoSpawnSettings);
+            _timer = new Timer(_random.Range(ufoSpawnDescription.SpawnTimeRange.Min, ufoSpawnDescription.SpawnTimeRange.Max), autoReset: false);
             _timer.Elapsed += SpawnUfo;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Client.Dependencies;
+using Client.Dependencies.Addressable;
 using GameLogic;
 using GameLogic.Descriptions.GameDescriptions;
 using UnityEngine;
@@ -19,7 +20,7 @@ namespace Client
 
         private void Start()
         {
-            var (_, ecsSystemsList) = _gameStarter.Init(new ReleaseGameDescription());
+            var (_, ecsSystemsList) = _gameStarter.Init(new ReleaseGameDescription(new AddressableWrapper()));
             _dependenciesContainer.InjectDependencies(ecsSystemsList);
             _gameStarter.Start();
         }

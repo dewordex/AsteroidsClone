@@ -2,7 +2,6 @@
 using GameLogic.Dependencies.View;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Client.Dependencies.View
 {
