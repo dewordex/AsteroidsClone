@@ -7,12 +7,13 @@ namespace GameLogic.Systems
 {
     public class EntityDestroySystem : IEcsRunSystem
     {
-        private Group<DeathComponent, Component<IView>> _filter; 
+        private Group<DeathComponent, ViewComponentRef<IView>> _filter;
+
         public void Run()
         {
             foreach (var i in _filter)
             {
-                ref var view = ref _filter.Get2(i).Value;
+                var view = _filter.Get2(i).View;
                 view.Destroy();
                 _filter.GetEntity(i).Destroy();
             }

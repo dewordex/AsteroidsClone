@@ -1,14 +1,15 @@
-﻿using CustomEcs.Groups;
+﻿using System;
+using CustomEcs.Groups;
 using CustomEcs.Systems;
 using GameLogic.Components;
 using GameLogic.Dependencies;
-using GameLogic.Dependencies.View.Components;
+using GameLogic.Utility;
 
 namespace GameLogic.Systems.Spaceship.Movement
 {
     public class SpaceshipRotateSystem : IEcsRunSystem
     {
-        private Group<Component<ITransform>, PlayerComponent> _filter;
+        private Group<RotationComponent, PlayerComponent> _filter;
         private IInput _input;
         private IDeltaTime _deltaTime;
         [IgnoreInject] private const int RotateSpeed = -250;
@@ -17,8 +18,12 @@ namespace GameLogic.Systems.Spaceship.Movement
         {
             if (_filter.IsEmpty == false && _input.Rotation != 0)
             {
-                ref var transform = ref _filter.Get1(0).Value;
-                transform.Rotate(RotateSpeed * _input.Rotation * _deltaTime.Value);
+                ref var rotationComponent = ref _filter.Get1(0);
+                var rotationAngle = RotateSpeed * _input.Rotation * _deltaTime.Value;
+                rotationComponent.RotationAngle -= rotationAngle;
+                if (Math.Abs(rotationComponent.RotationAngle) - 180 > 0)
+                    rotationComponent.RotationAngle = -rotationComponent.RotationAngle;
+                rotationComponent.RotationDirection = rotationComponent.RotationDirection.Rotate(rotationAngle);
             }
         }
     }

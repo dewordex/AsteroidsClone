@@ -14,7 +14,7 @@ namespace GameLogic.Systems
         {
             foreach (var i in _shootDelayFilter)
             {
-                _shootDelayFilter.Get1(i).Delay -= _deltaTime.Value;
+                _shootDelayFilter.Get1(i).CurrentDelay -= _deltaTime.Value;
             }
         }
     }

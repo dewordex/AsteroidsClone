@@ -44,7 +44,7 @@ namespace Client.Dependencies.View
                         }
                         else
                         {
-                            targetView.EntityLink.Get<CollisionEvent>().CollisionList = new List<(EcsEntity sender, EcsEntity target)>() { ((targetView.EntityLink, targetView.EntityLink)) };
+                            targetView.EntityLink.Replace(new CollisionEvent() { CollisionList = new List<(EcsEntity sender, EcsEntity target)>() { (targetView.EntityLink, targetView.EntityLink) } });
                         }
                     }
                 }
@@ -53,7 +53,7 @@ namespace Client.Dependencies.View
             StartCoroutine(DisableLaser(duration));
         }
 
-        public event Action<ILaserView> Disabled = delegate {  };
+        public event Action<ILaserView> Disabled = delegate { };
 
         private IEnumerator DisableLaser(float duration)
         {

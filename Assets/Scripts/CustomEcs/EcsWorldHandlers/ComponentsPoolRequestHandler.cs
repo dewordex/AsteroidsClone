@@ -7,6 +7,7 @@ namespace CustomEcs.EcsWorldHandlers
     internal class ComponentsPoolRequestHandler
     {
         private EcsWordData _ecsWordData;
+        private EcsComponentIdGenerator _ecsComponentIdGenerator = new EcsComponentIdGenerator();
         public ComponentsPoolRequestHandler(EcsWordData ecsWordData) => _ecsWordData = ecsWordData;
 
         public void Replace<T>(T component, uint entityID) where T : struct
@@ -14,13 +15,13 @@ namespace CustomEcs.EcsWorldHandlers
             var componentsPool = GetPool<T>();
             if (componentsPool.HasEntity(entityID) == false)
             {
-                AddIdentifierForEntityComponent(entityID, EcsComponentType<T>.TypeIndex);
+                AddIdentifierForEntityComponent(entityID, _ecsComponentIdGenerator.GetId<T>());
             }
 
             componentsPool.Replace(entityID, component);
         }
 
-        public void Delete<T>(uint entityID) where T : struct => MarkForDelete(entityID, EcsComponentType<T>.TypeIndex);
+        public void Delete<T>(uint entityID) where T : struct => MarkForDelete(entityID, _ecsComponentIdGenerator.GetId<T>());
 
         public void Destroy(uint entityID)
         {
@@ -30,25 +31,15 @@ namespace CustomEcs.EcsWorldHandlers
             }
         }
 
-        public bool Has<T>(uint entityID) where T : struct
-        {
-            var componentsPool = GetPool<T>();
-            return componentsPool.HasEntity(entityID);
-        }
-
-        public ref T Get<T>(uint entityID) where T : struct
-        {
-            var componentsPool = GetPool<T>();
-            if (componentsPool.HasEntity(entityID) == false) AddIdentifierForEntityComponent(entityID, EcsComponentType<T>.TypeIndex);
-            return ref componentsPool.Get(entityID);
-        }
+        public bool Has<T>(uint entityID) where T : struct => GetPool<T>().HasEntity(entityID);
+        public ref T Get<T>(uint entityID) where T : struct => ref GetPool<T>().Get(entityID);
 
         public IBaseComponentsPool GetBasePool<T>() where T : struct => GetPool<T>();
 
         private IComponentsPool<T> GetPool<T>() where T : struct
         {
             ref var componentsPools = ref _ecsWordData.GetComponentsPools();
-            var typeIndex = EcsComponentType<T>.TypeIndex;
+            var typeIndex = _ecsComponentIdGenerator.IsIdGenerated<T>() ? _ecsComponentIdGenerator.GetId<T>() : _ecsComponentIdGenerator.GenerateId<T>();
             var pool = componentsPools[typeIndex];
             if (pool == null)
             {

@@ -10,6 +10,8 @@
         public const string BulletDefault = "bullet_default";
         public const string BulletWeapon = "bullet_weapon";
         public const string LaserWeapon = "laser_weapon";
-        public const string LaserDefault = "laser_default";
+        public const string Laser = "laser";
+        public const string AsteroidSpawnSettings = "asteroid_spawn";
+        public const string UfoSpawnSettings = "ufo_spawn";
     }
 }

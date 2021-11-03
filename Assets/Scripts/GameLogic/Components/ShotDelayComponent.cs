@@ -2,6 +2,13 @@
 {
     public struct ShotDelayComponent
     {
-        public float Delay;
+        public readonly float ShotDelay;
+        public float CurrentDelay;
+
+        public ShotDelayComponent(float shotDelay)
+        {
+            ShotDelay = shotDelay;
+            CurrentDelay = 0;
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace GameLogic.Systems.Asteroid
         {
             if (_asteroidSessionFilter.IsEmpty == false)
             {
-                ref var asteroidsSessionComponent = ref _asteroidSessionFilter.Get1(0);;
+                ref var asteroidsSessionComponent = ref _asteroidSessionFilter.Get1(0);
                 foreach (var unused in _filter)
                 {
                     asteroidsSessionComponent.AsteroidsCount--;

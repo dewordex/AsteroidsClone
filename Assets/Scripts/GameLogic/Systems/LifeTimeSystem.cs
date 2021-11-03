@@ -2,7 +2,6 @@
 using CustomEcs.Systems;
 using GameLogic.Components;
 using GameLogic.Dependencies;
-using GameLogic.Descriptions.Components;
 
 namespace GameLogic.Systems
 {
