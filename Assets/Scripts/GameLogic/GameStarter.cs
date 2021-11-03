@@ -18,10 +18,10 @@ namespace GameLogic
             _systems = new EcsSystem(_world);
             _fixedSystems = new EcsSystem(_world);
             _lateSystems = new EcsSystem(_world);
-            
+
             var ecsSystemsList = new List<EcsSystem>() { _systems, _fixedSystems, _lateSystems };
 
-            gameDescription.SetupAll(ecsSystemsList);
+            gameDescription.SetupAll(ecsSystemsList, _world);
             gameDescription.SetupSystems(_systems);
             gameDescription.SetupLateSystems(_lateSystems);
             gameDescription.SetupFixedSystems(_fixedSystems);

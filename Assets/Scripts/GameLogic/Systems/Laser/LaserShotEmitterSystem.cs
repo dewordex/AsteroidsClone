@@ -22,10 +22,10 @@ namespace GameLogic.Systems.Laser
                     ref var laserWeaponComponent = ref _filter.Get1(0);
                     ref var shotDelayComponent = ref _filter.Get2(0);
 
-                    if (laserWeaponComponent.NumberOfShots > 0 && shotDelayComponent.Delay <= 0)
+                    if (laserWeaponComponent.NumberOfShots > 0 && shotDelayComponent.CurrentDelay <= 0)
                     {
                         laserWeaponComponent.NumberOfShots--;
-                        shotDelayComponent.Delay = laserWeaponComponent.ShootDelay;
+                        shotDelayComponent.CurrentDelay = laserWeaponComponent.ShootDelay;
                         _world.NewEntity().Replace(new LaserShootEvent());
                     }
                 }

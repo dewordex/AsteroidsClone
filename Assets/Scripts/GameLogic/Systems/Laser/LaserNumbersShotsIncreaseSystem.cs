@@ -17,6 +17,7 @@ namespace GameLogic.Systems.Laser
         public void Init()
         {
             _timer = new Timer(_filter.Get1(0).RecoveryRate);
+            _timer = new Timer(_filter.Get1(0).RecoveryRate);
             _timer.Elapsed += OnElapsed;
         }
 

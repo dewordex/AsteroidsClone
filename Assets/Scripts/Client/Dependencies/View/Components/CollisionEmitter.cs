@@ -21,7 +21,7 @@ namespace Client.Dependencies.View.Components
                 }
                 else
                 {
-                    senderEntity.Get<CollisionEvent>().CollisionList = new List<(EcsEntity sender, EcsEntity target)>() { ((senderEntity, targetEntity)) };
+                    senderEntity.Replace(new CollisionEvent() { CollisionList = new List<(EcsEntity sender, EcsEntity target)>() { (senderEntity, targetEntity) } });
                 }
             }
         }

@@ -107,4 +107,16 @@ namespace CustomEcs.Groups
             Subscribe<TComponent4>();
         }
     }
+
+    public class Group<TComponent1, TComponent2, TComponent3, TComponent4, TComponent5> : Group<TComponent1, TComponent2, TComponent3, TComponent4>
+        where TComponent1 : struct where TComponent2 : struct where TComponent3 : struct where TComponent4 : struct where TComponent5 : struct
+    {
+        public ref TComponent5 Get5(int index) => ref World.ComponentsPoolRequestHandler.Get<TComponent5>(Entities[index]);
+
+        public Group(EcsWorld world) : base(world)
+        {
+            RequiredNumberComponents = 5;
+            Subscribe<TComponent5>();
+        }
+    }
 }

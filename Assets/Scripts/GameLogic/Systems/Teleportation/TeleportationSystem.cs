@@ -4,13 +4,12 @@ using CustomEcs.Groups;
 using CustomEcs.Systems;
 using GameLogic.Components;
 using GameLogic.Dependencies;
-using GameLogic.Dependencies.View.Components;
 
 namespace GameLogic.Systems.Teleportation
 {
     public class TeleportationSystem : IEcsRunSystem
     {
-        private Group<Component<ITransform>, VelocityComponent> _filter;
+        private Group<PositionComponent, TeleportationSizeComponent, VelocityComponent> _filter;
         private ICamera _camera;
         private const float Offset = 0.1f;
 
@@ -18,18 +17,20 @@ namespace GameLogic.Systems.Teleportation
         {
             foreach (var i in _filter)
             {
-                ref var transform = ref _filter.Get1(i).Value;
-                var isInSectorX = -_camera.OrthographicSize * _camera.Aspect - transform.Scale.X < transform.Position.X && transform.Position.X < _camera.OrthographicSize * _camera.Aspect + transform.Scale.X;
-                var isInSectorY = -_camera.OrthographicSize - transform.Scale.Y < transform.Position.Y && transform.Position.Y < _camera.OrthographicSize + transform.Scale.Y;
+                ref var positionComponent = ref _filter.Get1(i);
+                ref var sizeComponent = ref _filter.Get2(i);
+                var isInSectorX = -_camera.OrthographicSize * _camera.Aspect - sizeComponent.Size.X < positionComponent.Position.X &&
+                                  positionComponent.Position.X < _camera.OrthographicSize * _camera.Aspect + sizeComponent.Size.X;
+                var isInSectorY = -_camera.OrthographicSize - sizeComponent.Size.Y < positionComponent.Position.Y && positionComponent.Position.Y < _camera.OrthographicSize + sizeComponent.Size.Y;
 
                 if (isInSectorX == false)
                 {
-                    transform.Position = new Vector2(-transform.Position.X + Math.Sign(transform.Position.X) * Offset, transform.Position.Y);
+                    positionComponent.Position = new Vector2(-positionComponent.Position.X + Math.Sign(positionComponent.Position.X) * Offset, positionComponent.Position.Y);
                 }
 
                 if (isInSectorY == false)
                 {
-                    transform.Position = new Vector2(transform.Position.X, -transform.Position.Y + Math.Sign(transform.Position.Y) * Offset);
+                    positionComponent.Position = new Vector2(positionComponent.Position.X, -positionComponent.Position.Y + Math.Sign(positionComponent.Position.Y) * Offset);
                 }
             }
         }

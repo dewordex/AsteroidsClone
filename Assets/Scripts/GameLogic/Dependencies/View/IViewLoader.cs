@@ -1,8 +1,9 @@
-﻿namespace GameLogic.Dependencies.View
+﻿using System.Threading.Tasks;
+
+namespace GameLogic.Dependencies.View
 {
     public interface IViewLoader
     {
-        IAsyncOperationHandle<T> InstantiateAsync<T>(string key) where T : IView;
-        IAsyncOperationHandle<IView> InstantiateAsync(string key);
+        Task<T> InstantiateAsync<T>(string key) where T : IView;
     }
 }

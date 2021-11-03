@@ -1,15 +1,13 @@
-﻿using System;
-using CustomEcs.Groups;
+﻿using CustomEcs.Groups;
 using CustomEcs.Systems;
 using GameLogic.Components;
 using GameLogic.Dependencies;
-using GameLogic.Dependencies.View.Components;
 
 namespace GameLogic.Systems
 {
     public class MovementInDirectionSystem : IEcsRunSystem
     {
-        private Group<MotionDirectionComponent, Component<ITransform>, VelocityComponent> _filter;
+        private Group<MotionDirectionComponent, PositionComponent, VelocityComponent> _filter;
         private IDeltaTime _deltaTime;
 
         public void Run()
@@ -17,9 +15,9 @@ namespace GameLogic.Systems
             foreach (var i in _filter)
             {
                 ref var motionDirectionComponent = ref _filter.Get1(i);
-                ref var transform = ref _filter.Get2(i).Value;
+                ref var positionComponent = ref _filter.Get2(i);
                 ref var velocityComponent = ref _filter.Get3(i);
-                transform.Position += velocityComponent.InstantVelocity.Length() * motionDirectionComponent.Direction * _deltaTime.Value;
+                positionComponent.Position += velocityComponent.InstantVelocity.Length() * motionDirectionComponent.Direction * _deltaTime.Value;
             }
         }
     }
